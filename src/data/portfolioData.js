@@ -244,39 +244,8 @@ export const learningPaths = [
 
 export const projectsData = [
   {
-    id: "psp",
-    number: "Project 01",
-    title: "Personal Service Platform (PSP)",
-    badge: "Featured Full-Stack Project",
-    status: "Ongoing Project",
-    category: "Full Stack",
-    description:
-      "A service-oriented full-stack web platform built with React 19, TypeScript, and Tailwind CSS v4 on the frontend, powered by an Express.js backend, Neon PostgreSQL with Drizzle ORM, and Firebase Authentication.",
-    longDescription:
-      "Personal Service Platform (PSP) is a modern full-stack web application designed for service-oriented functionality. It features a type-safe frontend built with React 19 and TypeScript, styled using Tailwind CSS v4. The backend is implemented with Express.js, integrating Neon Serverless PostgreSQL through Drizzle ORM for reliable, type-safe database queries. Authentication is managed securely through Firebase Authentication with Google OAuth integration.",
-    stack: [
-      "React 19",
-      "TypeScript",
-      "Tailwind CSS v4",
-      "Express.js",
-      "Neon PostgreSQL",
-      "Drizzle ORM",
-      "Firebase Auth",
-    ],
-    features: [
-      "Modern frontend architecture built with React 19 and TypeScript",
-      "Secure user authentication with Firebase Auth and Google OAuth integration",
-      "Scalable Express.js backend connected to Neon Serverless PostgreSQL",
-      "Type-safe database schemas and migrations managed via Drizzle ORM",
-      "Responsive, clean user interface styled with Tailwind CSS v4",
-      "Service-oriented platform workflows and data management",
-    ],
-    github: "",
-    live: "",
-  },
-  {
     id: "job-portal",
-    number: "Project 02",
+    number: "Project 01",
     title: "Job Portal Application",
     badge: "Frontend Web Application",
     status: "Frontend Complete",
@@ -300,7 +269,7 @@ export const projectsData = [
   },
   {
     id: "django-blog",
-    number: "Project 03",
+    number: "Project 02",
     title: "Beginner Django Blog Project",
     badge: "Python & Django Project",
     status: "Completed Project",
@@ -323,7 +292,7 @@ export const projectsData = [
   },
   {
     id: "skillbridge",
-    number: "Project 04",
+    number: "Project 03",
     title: "SkillBridge — Freelance Marketplace",
     badge: "Full-Stack MERN Application",
     status: "Live Project",
@@ -355,7 +324,7 @@ export const projectsData = [
   },
   {
     id: "ai-chatbot",
-    number: "Project 05",
+    number: "Project 04",
     title: "AI Chatbot Application",
     badge: "AI Exploration & Frontend",
     status: "Live Project",
@@ -377,7 +346,7 @@ export const projectsData = [
   },
   {
     id: "inventory",
-    number: "Project 06",
+    number: "Project 05",
     title: "Inventory Management System",
     badge: "Backend & SQL Database",
     status: "Live Project",
@@ -399,7 +368,7 @@ export const projectsData = [
   },
   {
     id: "python-cleaner",
-    number: "Project 07",
+    number: "Project 06",
     title: "Python Data Cleaner & Reporter",
     badge: "Python Automation Tool",
     status: "Completed Tool",
