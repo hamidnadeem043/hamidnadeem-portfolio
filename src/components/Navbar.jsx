@@ -46,12 +46,26 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        {/* Logo */}
+        {/* Logo with Profile Photo */}
         <a
           href="#"
-          className="font-heading font-bold text-2xl tracking-tight gradient-text-primary hover:opacity-90 transition-opacity flex items-center gap-1.5"
+          className="flex items-center gap-2.5 group"
+          title={`${personalData.name} - Portfolio`}
         >
-          {personalData.initials}
+          <div className="relative w-8 h-8 rounded-full p-[1.5px] bg-gradient-to-tr from-[#6C63FF] via-[#00D9FF] to-[#10B981] shadow-[0_0_12px_rgba(108,99,255,0.4)]">
+            <img
+              src={personalData.photo}
+              alt={personalData.name}
+              className="w-full h-full object-cover rounded-full bg-[#0C0F1A]"
+              onError={(e) => {
+                e.currentTarget.src = personalData.fallbackPhoto;
+              }}
+            />
+            <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-emerald-400 rounded-full border border-[#06080F]" />
+          </div>
+          <span className="font-heading font-bold text-xl tracking-tight gradient-text-primary group-hover:opacity-90 transition-opacity">
+            {personalData.initials}
+          </span>
         </a>
 
         {/* Desktop Navigation Links */}

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, Sparkles, Code2 } from 'lucide-react';
-import { skillsCategories } from '../data/portfolioData';
+import { skillsCategories, matrix, matrixProjects, matrixNote } from '../data/portfolioData';
 
 export default function Skills() {
   const [activeTab, setActiveTab] = useState('All');
@@ -121,6 +121,73 @@ export default function Skills() {
               No skills match your search query "{searchQuery}".
             </div>
           )}
+        </div>
+
+        {/* Project-Skill Usage Matrix */}
+        <div className="mt-16 pt-12 border-t border-[#6C63FF]/20">
+          <div className="mb-6 space-y-2">
+            <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#00D9FF]">
+              <Code2 className="w-4 h-4" />
+              <span>Project-Skill Matrix</span>
+            </div>
+            <h3 className="font-heading font-semibold text-xl text-white">
+              What I have used, and where
+            </h3>
+            <p className="text-xs text-slate-400 font-light max-w-xl">
+              Each glowing marker indicates real, production usage in a shipped project.
+            </p>
+          </div>
+
+          <div className="overflow-x-auto rounded-2xl border border-[#6C63FF]/15 bg-[#121628]/60 backdrop-blur-xl">
+            <table className="w-full min-w-[580px] border-collapse text-left">
+              <thead>
+                <tr className="border-b border-[#6C63FF]/20">
+                  <th scope="col" className="p-3.5 pl-6 text-xs font-semibold text-slate-300 uppercase tracking-wider">
+                    Skill / Technology
+                  </th>
+                  {matrixProjects.map((p) => (
+                    <th
+                      key={p.id}
+                      scope="col"
+                      className="p-3.5 text-center text-xs font-semibold text-[#8B83FF] uppercase tracking-wider"
+                    >
+                      {p.short}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {matrix.map((m) => (
+                  <tr
+                    key={m.skill}
+                    className="border-b border-white/5 hover:bg-[#6C63FF]/10 transition-colors"
+                  >
+                    <td className="p-3 pl-6 text-xs font-medium text-slate-200">
+                      {m.skill}
+                    </td>
+                    {matrixProjects.map((p) => {
+                      const used = m.used.includes(p.id);
+                      return (
+                        <td key={p.id} className="p-3 text-center">
+                          {used ? (
+                            <span
+                              className="inline-block w-2.5 h-2.5 rounded-full bg-[#00D9FF] shadow-[0_0_8px_#00D9FF]"
+                              title={`Used in ${p.short}`}
+                            />
+                          ) : (
+                            <span className="inline-block w-1 h-1 rounded-full bg-slate-700" />
+                          )}
+                        </td>
+                      );
+                    })}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-3 text-[11px] text-slate-500 italic">
+            *{matrixNote}
+          </p>
         </div>
       </div>
     </section>

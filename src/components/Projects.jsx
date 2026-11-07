@@ -6,12 +6,20 @@ import ProjectModal from './ProjectModal';
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState(null);
+  const [activeCategory, setActiveCategory] = useState('All');
+
+  const categories = ['All', 'Python & Django', 'Full Stack', 'Frontend & AI', 'Backend & SQL'];
+
+  const filteredProjects =
+    activeCategory === 'All'
+      ? projectsData
+      : projectsData.filter((p) => p.category === activeCategory);
 
   return (
     <section id="projects" className="py-24 px-6 md:px-14 relative bg-[#0C0F1A]/40">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-16 space-y-3">
+        <div className="text-center mb-12 space-y-3">
           <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#00D9FF]">
             <span className="w-6 h-[2px] bg-gradient-to-r from-[#6C63FF] to-[#00D9FF] rounded-full" />
             <span>Portfolio</span>
@@ -22,9 +30,26 @@ export default function Projects() {
           </h2>
         </div>
 
+        {/* Category Filter Pills */}
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider transition-all duration-300 ${
+                activeCategory === cat
+                  ? 'bg-gradient-to-r from-[#6C63FF] to-[#00D9FF] text-white shadow-lg shadow-[#6C63FF]/25 scale-105'
+                  : 'bg-[#121628]/60 text-slate-400 border border-[#6C63FF]/15 hover:text-white hover:border-[#6C63FF]/40'
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projectsData.map((project, idx) => (
+          {filteredProjects.map((project, idx) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 25 }}

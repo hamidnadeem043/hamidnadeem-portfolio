@@ -33,10 +33,17 @@ export default function Learning() {
                 {topic.icon}
               </div>
 
-              <div>
-                <h3 className="font-heading font-semibold text-sm text-white mb-0.5">
-                  {topic.title}
-                </h3>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center justify-between gap-2 mb-0.5">
+                  <h3 className="font-heading font-semibold text-sm text-white truncate">
+                    {topic.title}
+                  </h3>
+                  {topic.state && (
+                    <span className="px-2 py-0.5 rounded-full text-[10px] font-medium bg-[#00D9FF]/10 text-[#00D9FF] border border-[#00D9FF]/25 shrink-0">
+                      {topic.state}
+                    </span>
+                  )}
+                </div>
                 <p className="text-xs text-slate-400 font-light leading-relaxed">
                   {topic.desc}
                 </p>

@@ -55,6 +55,14 @@ export default function ProjectModal({ project, onClose }) {
             {project.longDescription || project.description}
           </p>
 
+          {/* Project Note if available */}
+          {project.note && (
+            <div className="my-3 px-3.5 py-2.5 rounded-xl bg-[#00D9FF]/10 border border-[#00D9FF]/20 text-xs text-slate-300 flex items-start gap-2">
+              <span className="text-[#00D9FF] font-semibold shrink-0">Note:</span>
+              <span className="font-light leading-relaxed">{project.note}</span>
+            </div>
+          )}
+
           {/* Key Highlights */}
           {project.highlights && (
             <div className="my-5 p-4 rounded-xl bg-[#121628]/80 border border-[#6C63FF]/15 space-y-2">
@@ -70,6 +78,23 @@ export default function ProjectModal({ project, onClose }) {
                   </li>
                 ))}
               </ul>
+            </div>
+          )}
+
+          {/* Architecture Decisions if available */}
+          {project.decisions && (
+            <div className="my-4 p-4 rounded-xl bg-[#121628]/80 border border-[#6C63FF]/15 space-y-2.5">
+              <div className="text-xs font-semibold uppercase tracking-wider text-[#00D9FF]">
+                Architectural Decisions
+              </div>
+              <div className="space-y-2 text-xs">
+                {project.decisions.map((d, i) => (
+                  <div key={i} className="p-2.5 rounded-lg bg-[#06080F]/50 border border-white/5">
+                    <div className="font-medium text-white">{d.title}</div>
+                    <div className="text-slate-400 font-light mt-0.5 leading-relaxed">{d.text}</div>
+                  </div>
+                ))}
+              </div>
             </div>
           )}
 

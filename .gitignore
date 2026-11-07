@@ -19,7 +19,9 @@ pids
 # Dependency directories
 node_modules/
 
-# Production build output
+# Temporary zip and extract archives
+*.zip
+hamidnadeem-portfolio-updated*/
 dist/
 dist-ssr/
 *.local

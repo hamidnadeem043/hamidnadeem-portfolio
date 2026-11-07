@@ -38,8 +38,13 @@ export default function Certifications() {
                 <h3 className="font-heading font-semibold text-sm text-white truncate">
                   {cert.title}
                 </h3>
-                <div className="text-xs text-slate-400 font-light">
-                  {cert.issuer}
+                <div className="text-xs text-slate-400 font-light flex items-center gap-2 mt-0.5">
+                  <span>{cert.issuer}</span>
+                  {cert.simulation && (
+                    <span className="px-1.5 py-0.5 rounded text-[10px] font-medium bg-[#00D9FF]/10 text-[#00D9FF] border border-[#00D9FF]/30">
+                      Job Simulation
+                    </span>
+                  )}
                 </div>
               </div>
 

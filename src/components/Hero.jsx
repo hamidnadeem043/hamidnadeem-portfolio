@@ -23,11 +23,47 @@ export default function Hero() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] bg-radial from-[#6C63FF]/15 via-[#00D9FF]/5 to-transparent rounded-full pointer-events-none blur-3xl animate-hero-glow" />
 
       <div className="max-w-4xl mx-auto relative z-10 flex flex-col items-center">
+        {/* Profile Photo with Animated Neon Glow Ring */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          className="relative mb-6 group cursor-pointer"
+        >
+          {/* Ambient Glow behind Avatar */}
+          <div className="absolute -inset-1.5 bg-gradient-to-r from-[#6C63FF] via-[#00D9FF] to-[#10B981] rounded-full blur-md opacity-75 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500 animate-pulse" />
+
+          {/* Avatar Outer Ring */}
+          <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full p-1 bg-gradient-to-tr from-[#6C63FF] via-[#00D9FF] to-[#10B981] shadow-2xl shadow-[#6C63FF]/30">
+            <div className="w-full h-full rounded-full overflow-hidden bg-[#0C0F1A] border-2 border-[#06080F]">
+              <img
+                src={personalData.photo}
+                alt={personalData.name}
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                onError={(e) => {
+                  e.currentTarget.src = personalData.fallbackPhoto;
+                }}
+              />
+            </div>
+          </div>
+
+          {/* Floating Role Pill */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.5 }}
+            className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 whitespace-nowrap px-3 py-1 rounded-full bg-[#0C0F1A]/95 border border-[#00D9FF]/40 backdrop-blur-md shadow-lg shadow-black/40 flex items-center gap-1.5 text-[11px] font-semibold text-[#00D9FF]"
+          >
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse-dot" />
+            <span>AI & Full-Stack</span>
+          </motion.div>
+        </motion.div>
+
         {/* Status Badge */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
           className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-[#6C63FF]/30 bg-[#6C63FF]/10 text-xs font-semibold tracking-wider text-[#8B83FF] uppercase mb-8 backdrop-blur-md shadow-sm"
         >
           <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse-dot" />
@@ -62,10 +98,33 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
-          className="text-xs sm:text-sm text-slate-400 italic mb-10 max-w-xl"
+          className="text-xs sm:text-sm text-slate-400 italic mb-6 max-w-xl"
         >
           "{personalData.tagline}"
         </motion.p>
+
+        {/* Core Tech Focus Pills */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.35 }}
+          className="flex flex-wrap items-center justify-center gap-2 mb-10"
+        >
+          {[
+            { label: 'AI Automation & Agents', icon: '🤖' },
+            { label: 'Python & Django', icon: '🐍' },
+            { label: 'Full-Stack MERN', icon: '⚛️' },
+            { label: 'Google Gemini API', icon: '⚡' },
+          ].map((pill) => (
+            <span
+              key={pill.label}
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#121628]/80 border border-[#6C63FF]/25 text-xs text-slate-300 backdrop-blur-md hover:border-[#00D9FF]/40 transition-colors"
+            >
+              <span>{pill.icon}</span>
+              <span className="font-medium">{pill.label}</span>
+            </span>
+          ))}
+        </motion.div>
 
         {/* CTA Buttons */}
         <motion.div
@@ -91,7 +150,7 @@ export default function Hero() {
 
           <a
             href={personalData.resumePrimary}
-            download={personalData.resumePrimary}
+            download="Hamid_Nadeem_Resume.pdf"
             onClick={triggerConfetti}
             className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-lg text-xs font-semibold uppercase tracking-wider text-[#8B83FF] border border-[#6C63FF]/50 bg-[#6C63FF]/10 hover:bg-gradient-to-r hover:from-[#6C63FF] hover:to-[#00D9FF] hover:text-white hover:border-transparent hover:-translate-y-0.5 shadow-md shadow-[#6C63FF]/15 transition-all duration-300"
           >

@@ -46,7 +46,7 @@ export default function Contact() {
             Open to Opportunities
           </h2>
           <p className="text-sm text-slate-300 font-light max-w-xl mx-auto leading-relaxed">
-            I'm actively looking for MERN Stack / junior web development roles. If you're building something great and need a developer who's eager to learn and ship fast — let's connect.
+            I'm actively open to junior and internship roles in Full-Stack development (MERN), Python & Django backend, and AI automation. If you're building something great — let's connect.
           </p>
         </div>
 

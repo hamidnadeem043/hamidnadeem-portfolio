@@ -31,9 +31,16 @@ export default function Goals() {
               className="p-5 rounded-2xl bg-[#121628]/60 border border-[#6C63FF]/15 backdrop-blur-md flex items-start gap-4 hover:border-[#00D9FF]/40 hover:-translate-y-1 hover:shadow-[0_8px_25px_rgba(0,217,255,0.15)] transition-all duration-300"
             >
               <span className="text-2xl shrink-0 mt-0.5">{goal.emoji}</span>
-              <p className="text-xs text-slate-300 leading-relaxed font-light">
-                {goal.text}
-              </p>
+              <div className="flex-1 min-w-0">
+                {goal.title && (
+                  <h3 className="font-heading font-semibold text-sm text-white mb-1 group-hover:text-[#00D9FF] transition-colors">
+                    {goal.title}
+                  </h3>
+                )}
+                <p className="text-xs text-slate-300 leading-relaxed font-light">
+                  {goal.text}
+                </p>
+              </div>
             </motion.div>
           ))}
         </div>
