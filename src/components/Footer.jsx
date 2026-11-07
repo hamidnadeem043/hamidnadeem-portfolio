@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUp } from 'lucide-react';
+import { ArrowUp, Github, Linkedin, Mail } from 'lucide-react';
 import { personalData } from '../data/portfolioData';
 
 export default function Footer() {
@@ -8,23 +8,48 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative z-10 border-t border-[#6C63FF]/15 bg-[#06080F]/90 py-8 px-6 md:px-14">
+    <footer className="border-t border-[#30363d] bg-[#0d1117] py-8 px-5 md:px-10 text-xs text-[#8b949e]">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
-        <div className="text-xs text-slate-400 font-light">
-          © {new Date().getFullYear()} <span className="text-white font-medium">{personalData.name}</span> · {personalData.university}
+        <div>
+          <span className="text-[#f0f6fc] font-medium">{personalData.name}</span>
+          <span className="mx-2">•</span>
+          <span>{personalData.degree}</span>
+          <span className="mx-2">•</span>
+          <span>{personalData.university}</span>
         </div>
 
-        <div className="text-xs text-slate-400 italic max-w-md font-light leading-relaxed">
-          "{personalData.motto}"
+        <div className="flex items-center gap-4">
+          <a
+            href={personalData.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[#f0f6fc] transition-colors"
+          >
+            GitHub
+          </a>
+          <a
+            href={personalData.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[#58a6ff] transition-colors"
+          >
+            LinkedIn
+          </a>
+          <a
+            href={`mailto:${personalData.email}`}
+            className="hover:text-[#38bdf8] transition-colors"
+          >
+            Email
+          </a>
+          <button
+            onClick={scrollToTop}
+            className="p-2 rounded-md bg-[#161b22] border border-[#30363d] text-[#8b949e] hover:text-[#f0f6fc] hover:border-[#58a6ff]/40 transition-all ml-2"
+            title="Back to Top"
+            aria-label="Back to top"
+          >
+            <ArrowUp className="w-3.5 h-3.5" />
+          </button>
         </div>
-
-        <button
-          onClick={scrollToTop}
-          className="p-2.5 rounded-xl bg-[#121628] border border-[#6C63FF]/20 text-slate-400 hover:text-white hover:border-[#6C63FF] hover:bg-[#6C63FF]/20 transition-all"
-          title="Back to Top"
-        >
-          <ArrowUp className="w-4 h-4" />
-        </button>
       </div>
     </footer>
   );

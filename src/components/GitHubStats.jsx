@@ -1,63 +1,73 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Github, ExternalLink } from 'lucide-react';
+import { Github, ExternalLink, Activity } from 'lucide-react';
 import { personalData } from '../data/portfolioData';
 
 export default function GitHubStats() {
   return (
-    <section id="github" className="py-24 px-6 md:px-14 relative">
+    <section id="github" className="py-20 px-5 md:px-10 relative">
       <div className="max-w-5xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-14 space-y-3">
-          <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#00D9FF]">
-            <span className="w-6 h-[2px] bg-gradient-to-r from-[#6C63FF] to-[#00D9FF] rounded-full" />
-            <span>Open Source</span>
-            <span className="w-6 h-[2px] bg-gradient-to-r from-[#00D9FF] to-[#6C63FF] rounded-full" />
+        <div className="mb-12 space-y-2">
+          <div className="inline-flex items-center gap-2 text-xs font-mono font-medium text-[#58a6ff]">
+            <Activity className="w-3.5 h-3.5" />
+            <span className="uppercase tracking-wider">Open Source &amp; Activity</span>
+            <span className="w-12 h-px bg-[#30363d]" />
           </div>
-          <h2 className="font-heading font-bold text-3xl sm:text-4xl text-white tracking-tight">
-            GitHub Activity & Metrics
+          <h2 className="font-heading font-bold text-3xl sm:text-4xl text-[#f0f6fc] tracking-tight">
+            GitHub Metrics &amp; Contribution Overview
           </h2>
+          <p className="text-sm text-[#8b949e] max-w-2xl font-light">
+            Consistent commitment to project development, continuous learning, and open-source version control.
+          </p>
         </div>
 
-        {/* Stats Image Cards Grid */}
+        {/* Stats Grid */}
         <motion.div
-          initial={{ opacity: 0, y: 25 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.45 }}
           className="flex flex-col items-center gap-6"
         >
-          <div className="flex flex-wrap items-center justify-center gap-6 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-full">
+            <div className="p-4 rounded-xl bg-[#161b22] border border-[#30363d] flex items-center justify-center overflow-hidden">
+              <img
+                src="https://github-readme-stats.vercel.app/api?username=hamidnadeem043&show_icons=true&theme=github_dark&hide_border=true&count_private=true&title_color=58a6ff&icon_color=38bdf8&text_color=c9d1d9&bg_color=161b22"
+                alt="Hamid Nadeem GitHub Stats"
+                className="w-full h-auto max-w-md object-contain"
+                loading="lazy"
+              />
+            </div>
+
+            <div className="p-4 rounded-xl bg-[#161b22] border border-[#30363d] flex items-center justify-center overflow-hidden">
+              <img
+                src="https://github-readme-stats.vercel.app/api/top-langs/?username=hamidnadeem043&layout=compact&theme=github_dark&hide_border=true&title_color=58a6ff&text_color=c9d1d9&bg_color=161b22"
+                alt="Hamid Nadeem Top Languages"
+                className="w-full h-auto max-w-md object-contain"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <div className="w-full p-4 rounded-xl bg-[#161b22] border border-[#30363d] flex items-center justify-center overflow-hidden">
             <img
-              src="https://github-readme-stats.vercel.app/api?username=hamidnadeem043&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&title_color=6C63FF&icon_color=00D9FF&text_color=9BA3B5&bg_color=0C0F1A"
-              alt="Hamid Nadeem GitHub Stats"
-              className="h-44 rounded-2xl border border-[#6C63FF]/20 shadow-xl bg-[#0C0F1A] hover:border-[#6C63FF]/50 transition-all duration-300"
-              loading="lazy"
-            />
-            <img
-              src="https://github-readme-stats.vercel.app/api/top-langs/?username=hamidnadeem043&layout=compact&theme=tokyonight&hide_border=true&title_color=6C63FF&text_color=9BA3B5&bg_color=0C0F1A"
-              alt="Hamid Nadeem Top Languages"
-              className="h-44 rounded-2xl border border-[#6C63FF]/20 shadow-xl bg-[#0C0F1A] hover:border-[#6C63FF]/50 transition-all duration-300"
+              src="https://github-readme-streak-stats.herokuapp.com/?user=hamidnadeem043&theme=github-dark-blue&hide_border=true&ring=58a6ff&fire=38bdf8&currStreakLabel=58a6ff&background=161b22&sideLabels=8b949e&dates=c9d1d9"
+              alt="Hamid Nadeem GitHub Streak Stats"
+              className="w-full max-w-xl object-contain"
               loading="lazy"
             />
           </div>
-
-          <img
-            src="https://github-readme-streak-stats.herokuapp.com/?user=hamidnadeem043&theme=tokyonight&hide_border=true&ring=6C63FF&fire=00D9FF&currStreakLabel=6C63FF&background=0C0F1A&sideLabels=9BA3B5&dates=9BA3B5"
-            alt="Hamid Nadeem GitHub Streak Stats"
-            className="w-full max-w-xl rounded-2xl border border-[#6C63FF]/20 shadow-xl bg-[#0C0F1A] hover:border-[#6C63FF]/50 transition-all duration-300"
-            loading="lazy"
-          />
 
           <a
             href={personalData.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 mt-4 px-6 py-3 rounded-xl text-xs font-semibold uppercase tracking-wider text-white bg-[#121628] border border-[#6C63FF]/30 hover:border-[#6C63FF] hover:bg-[#6C63FF]/20 hover:-translate-y-0.5 transition-all shadow-md"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-xs font-semibold uppercase tracking-wider text-[#f0f6fc] bg-[#21262d] border border-[#30363d] hover:bg-[#30363d] hover:border-[#58a6ff]/40 transition-all"
           >
-            <Github className="w-4 h-4 text-[#6C63FF]" />
-            <span>Visit @hamidnadeem043 on GitHub</span>
-            <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
+            <Github className="w-4 h-4 text-[#58a6ff]" />
+            <span>Explore @hamidnadeem043 on GitHub</span>
+            <ExternalLink className="w-3.5 h-3.5 text-[#8b949e]" />
           </a>
         </motion.div>
       </div>

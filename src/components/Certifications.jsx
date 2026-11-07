@@ -1,56 +1,81 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Award, Calendar, ExternalLink } from 'lucide-react';
+import { Award, Calendar, CheckCircle2, ShieldCheck, ExternalLink } from 'lucide-react';
 import { certsData } from '../data/portfolioData';
 
 export default function Certifications() {
   return (
-    <section id="certifications" className="py-24 px-6 md:px-14 relative">
-      <div className="max-w-4xl mx-auto">
+    <section id="certifications" className="py-20 px-5 md:px-10 relative">
+      <div className="max-w-5xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-14 space-y-3">
-          <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#00D9FF]">
-            <span className="w-6 h-[2px] bg-gradient-to-r from-[#6C63FF] to-[#00D9FF] rounded-full" />
-            <span>Certifications</span>
-            <span className="w-6 h-[2px] bg-gradient-to-r from-[#00D9FF] to-[#6C63FF] rounded-full" />
+        <div className="mb-12 space-y-2">
+          <div className="inline-flex items-center gap-2 text-xs font-mono font-medium text-[#58a6ff]">
+            <span>06.</span>
+            <span className="uppercase tracking-wider">Certifications &amp; Credentials</span>
+            <span className="w-12 h-px bg-[#30363d]" />
           </div>
-          <h2 className="font-heading font-bold text-3xl sm:text-4xl text-white tracking-tight">
-            Credentials & Certificates
+          <h2 className="font-heading font-bold text-3xl sm:text-4xl text-[#f0f6fc] tracking-tight">
+            Verified Credentials &amp; Industry Simulations
           </h2>
+          <p className="text-sm text-[#8b949e] max-w-2xl font-light">
+            Structured online certifications and practical corporate job simulations completed alongside degree studies.
+          </p>
         </div>
 
-        {/* Certifications Rows */}
-        <div className="space-y-3">
+        {/* Certifications Rows Grid */}
+        <div className="space-y-3.5">
           {certsData.map((cert, idx) => (
             <motion.div
               key={cert.title}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
-              transition={{ duration: 0.4, delay: idx * 0.1 }}
-              className="p-4 sm:p-5 rounded-xl bg-[#121628]/60 border border-[#6C63FF]/15 backdrop-blur-md flex items-center gap-4 hover:border-[#6C63FF]/40 hover:translate-x-1.5 hover:shadow-[0_6px_20px_rgba(108,99,255,0.15)] transition-all duration-300"
+              transition={{ duration: 0.35, delay: idx * 0.08 }}
+              className="p-5 rounded-xl bg-[#161b22] border border-[#30363d] flex flex-col md:flex-row md:items-center justify-between gap-4 hover:border-[#58a6ff]/40 transition-colors"
             >
-              <div className="w-10 h-10 rounded-lg bg-[#6C63FF]/10 border border-[#6C63FF]/20 flex items-center justify-center text-xl shrink-0">
-                {cert.icon}
-              </div>
+              <div className="flex items-start gap-3.5 min-w-0">
+                <div className="w-10 h-10 rounded-lg bg-[#58a6ff]/10 border border-[#58a6ff]/20 flex items-center justify-center text-[#58a6ff] shrink-0 mt-0.5">
+                  <Award className="w-5 h-5" />
+                </div>
 
-              <div className="flex-1 min-w-0">
-                <h3 className="font-heading font-semibold text-sm text-white truncate">
-                  {cert.title}
-                </h3>
-                <div className="text-xs text-slate-400 font-light flex items-center gap-2 mt-0.5">
-                  <span>{cert.issuer}</span>
-                  {cert.simulation && (
-                    <span className="px-1.5 py-0.5 rounded text-[10px] font-medium bg-[#00D9FF]/10 text-[#00D9FF] border border-[#00D9FF]/30">
-                      Job Simulation
+                <div className="min-w-0">
+                  <div className="flex flex-wrap items-center gap-2 mb-1">
+                    <h3 className="font-heading font-semibold text-base text-[#f0f6fc]">
+                      {cert.title}
+                    </h3>
+                    <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-[#0d1117] text-[#58a6ff] border border-[#30363d]">
+                      {cert.type}
                     </span>
-                  )}
+                  </div>
+
+                  <div className="text-xs text-[#8b949e] font-light mb-2">
+                    Issued by <strong className="text-[#c9d1d9] font-medium">{cert.issuer}</strong>
+                  </div>
+
+                  {/* Skills Tagged */}
+                  <div className="flex flex-wrap gap-1.5">
+                    {cert.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="px-2 py-0.5 rounded text-[10px] font-mono bg-[#0d1117] text-[#8b949e]"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
 
-              <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#6C63FF]/10 text-[11px] font-medium text-[#8B83FF] border border-[#6C63FF]/20 shrink-0">
-                <Calendar className="w-3 h-3 text-[#6C63FF]" />
-                <span>{cert.date}</span>
+              {/* Date & Verified Badge */}
+              <div className="flex items-center gap-3 shrink-0 self-end md:self-center">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-[#0d1117] border border-[#30363d] text-xs font-mono text-[#8b949e]">
+                  <Calendar className="w-3.5 h-3.5 text-[#58a6ff]" />
+                  <span>{cert.date}</span>
+                </span>
+                <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-[#238636]/10 border border-[#238636]/30 text-xs font-mono text-[#3fb950]">
+                  <ShieldCheck className="w-3.5 h-3.5" />
+                  <span>Verified</span>
+                </span>
               </div>
             </motion.div>
           ))}

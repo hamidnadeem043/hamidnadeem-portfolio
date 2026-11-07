@@ -1,211 +1,200 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Download, Github, Linkedin, Mail, ArrowRight, Sparkles } from 'lucide-react';
+import { Download, ArrowRight, Github, Linkedin, Mail, Code2, Sparkles, Terminal } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { personalData } from '../data/portfolioData';
 
 export default function Hero() {
   const triggerConfetti = () => {
     confetti({
-      particleCount: 80,
-      spread: 70,
-      origin: { y: 0.7 },
-      colors: ['#6C63FF', '#00D9FF', '#FF6B9D', '#4ADE80']
+      particleCount: 60,
+      spread: 60,
+      origin: { y: 0.75 },
+      colors: ['#58a6ff', '#38bdf8', '#3fb950', '#f0f6fc'],
     });
   };
 
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col justify-center items-center text-center px-6 pt-28 pb-16 overflow-hidden"
+      className="relative min-h-[92vh] flex flex-col justify-center items-center text-center px-5 pt-28 pb-16 overflow-hidden"
     >
-      {/* Background Ambient Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] bg-radial from-[#6C63FF]/15 via-[#00D9FF]/5 to-transparent rounded-full pointer-events-none blur-3xl animate-hero-glow" />
+      {/* Subtle Background Radial Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-radial from-[#58a6ff]/10 via-[#38bdf8]/5 to-transparent rounded-full pointer-events-none blur-3xl animate-hero-glow" />
 
       <div className="max-w-4xl mx-auto relative z-10 flex flex-col items-center">
-        {/* Profile Photo with Animated Neon Glow Ring */}
+        {/* Profile Image with subtle GitHub-dark border ring */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
+          initial={{ opacity: 0, scale: 0.85 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6 }}
-          className="relative mb-6 group cursor-pointer"
+          transition={{ duration: 0.5 }}
+          className="relative mb-6 group"
         >
-          {/* Ambient Glow behind Avatar */}
-          <div className="absolute -inset-1.5 bg-gradient-to-r from-[#6C63FF] via-[#00D9FF] to-[#10B981] rounded-full blur-md opacity-75 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500 animate-pulse" />
+          {/* Subtle Accent Glow Ring */}
+          <div className="absolute -inset-1 bg-gradient-to-r from-[#58a6ff] to-[#38bdf8] rounded-full blur-sm opacity-60 group-hover:opacity-100 transition-opacity duration-300" />
 
-          {/* Avatar Outer Ring */}
-          <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full p-1 bg-gradient-to-tr from-[#6C63FF] via-[#00D9FF] to-[#10B981] shadow-2xl shadow-[#6C63FF]/30">
-            <div className="w-full h-full rounded-full overflow-hidden bg-[#0C0F1A] border-2 border-[#06080F]">
-              <img
-                src={personalData.photo}
-                alt={personalData.name}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                onError={(e) => {
-                  e.currentTarget.src = personalData.fallbackPhoto;
-                }}
-              />
-            </div>
+          <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full p-1 bg-[#161b22] border border-[#30363d]">
+            <img
+              src={personalData.photo}
+              alt={personalData.name}
+              className="w-full h-full object-cover rounded-full bg-[#0d1117]"
+              onError={(e) => {
+                e.currentTarget.src = personalData.fallbackPhoto;
+              }}
+            />
           </div>
 
-          {/* Floating Role Pill */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-            className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 whitespace-nowrap px-3 py-1 rounded-full bg-[#0C0F1A]/95 border border-[#00D9FF]/40 backdrop-blur-md shadow-lg shadow-black/40 flex items-center gap-1.5 text-[11px] font-semibold text-[#00D9FF]"
+          {/* Online Active Indicator */}
+          <div
+            className="absolute bottom-1 right-1 px-2.5 py-0.5 rounded-full bg-[#161b22] border border-[#30363d] flex items-center gap-1.5 shadow-md"
+            title="Active & Available"
           >
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse-dot" />
-            <span>AI & Full-Stack</span>
-          </motion.div>
+            <span className="w-2 h-2 rounded-full bg-[#3fb950] animate-pulse-dot" />
+            <span className="text-[10px] font-medium text-[#c9d1d9]">Open to Roles</span>
+          </div>
         </motion.div>
 
-        {/* Status Badge */}
+        {/* Status Pill */}
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-[#6C63FF]/30 bg-[#6C63FF]/10 text-xs font-semibold tracking-wider text-[#8B83FF] uppercase mb-8 backdrop-blur-md shadow-sm"
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[#30363d] bg-[#161b22] text-xs font-medium text-[#c9d1d9] mb-6 shadow-sm"
         >
-          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse-dot" />
+          <span className="w-2 h-2 rounded-full bg-[#3fb950] animate-pulse-dot" />
           <span>{personalData.statusBadge}</span>
-          <span className="opacity-40">•</span>
-          <span>📍 {personalData.location}</span>
+          <span className="text-[#8b949e]">•</span>
+          <span className="text-[#8b949e]">📍 {personalData.location}</span>
         </motion.div>
 
-        {/* Name Title */}
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          className="font-heading font-bold text-5xl sm:text-7xl md:text-8xl tracking-tight leading-none mb-6"
-        >
-          {personalData.firstName} <br className="sm:hidden" />
-          <span className="gradient-text-primary">{personalData.lastName}</span>
-        </motion.h1>
-
-        {/* Subtitle */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="text-base sm:text-xl text-slate-300 font-light tracking-wide max-w-2xl mb-3"
-        >
-          {personalData.subtitle}
-        </motion.p>
-
-        {/* Tagline */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.3 }}
-          className="text-xs sm:text-sm text-slate-400 italic mb-6 max-w-xl"
-        >
-          "{personalData.tagline}"
-        </motion.p>
-
-        {/* Core Tech Focus Pills */}
+        {/* Greeting & Name Title */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.35 }}
-          className="flex flex-wrap items-center justify-center gap-2 mb-10"
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="space-y-2 mb-4"
+        >
+          <p className="text-base sm:text-lg font-mono text-[#58a6ff]">
+            Hi, I'm
+          </p>
+          <h1 className="font-heading font-bold text-4xl sm:text-6xl md:text-7xl text-[#f0f6fc] tracking-tight">
+            Hamid Nadeem
+          </h1>
+        </motion.div>
+
+        {/* Primary Subtitle Headline */}
+        <motion.h2
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="font-heading font-semibold text-xl sm:text-2xl md:text-3xl text-[#c9d1d9] max-w-2xl leading-snug mb-4"
+        >
+          {personalData.subtitle}
+        </motion.h2>
+
+        {/* Professional Supporting Description */}
+        <motion.p
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.25 }}
+          className="text-sm sm:text-base text-[#8b949e] max-w-2xl leading-relaxed mb-8 font-light"
+        >
+          {personalData.supportingText}
+        </motion.p>
+
+        {/* Focus Tags */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="flex flex-wrap items-center justify-center gap-2 mb-9"
         >
           {[
-            { label: 'AI Automation & Agents', icon: '🤖' },
-            { label: 'Python & Django', icon: '🐍' },
-            { label: 'Full-Stack MERN', icon: '⚛️' },
-            { label: 'Google Gemini API', icon: '⚡' },
-          ].map((pill) => (
+            'Full-Stack Web Development',
+            'Python & Django',
+            'AI / ML Fundamentals',
+            'AI Automation & Workflows',
+          ].map((tag) => (
             <span
-              key={pill.label}
-              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#121628]/80 border border-[#6C63FF]/25 text-xs text-slate-300 backdrop-blur-md hover:border-[#00D9FF]/40 transition-colors"
+              key={tag}
+              className="px-3 py-1 rounded-md bg-[#161b22] border border-[#30363d] text-xs font-mono text-[#c9d1d9] hover:border-[#58a6ff]/50 transition-colors"
             >
-              <span>{pill.icon}</span>
-              <span className="font-medium">{pill.label}</span>
+              {tag}
             </span>
           ))}
         </motion.div>
 
-        {/* CTA Buttons */}
+        {/* Two Primary Action Buttons */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.4 }}
-          className="flex flex-wrap items-center justify-center gap-4 mb-10"
+          transition={{ duration: 0.5, delay: 0.35 }}
+          className="flex flex-wrap items-center justify-center gap-3.5 mb-10"
         >
           <a
             href="#projects"
-            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg text-xs font-semibold uppercase tracking-wider text-white gradient-bg-primary shadow-lg shadow-[#6C63FF]/30 hover:shadow-[#6C63FF]/50 hover:-translate-y-0.5 transition-all duration-300"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-xs sm:text-sm font-semibold uppercase tracking-wider text-white bg-[#1f6feb] hover:bg-[#388bfd] shadow-sm hover:shadow-[#58a6ff]/20 transition-all duration-200"
           >
-            <span>View Projects</span>
+            <span>Explore My Projects</span>
             <ArrowRight className="w-4 h-4" />
-          </a>
-
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg text-xs font-semibold uppercase tracking-wider text-slate-200 border border-white/15 bg-white/5 hover:bg-[#6C63FF]/10 hover:border-[#6C63FF] hover:text-[#8B83FF] hover:-translate-y-0.5 transition-all duration-300 backdrop-blur-md"
-          >
-            <span>Get in Touch</span>
           </a>
 
           <a
             href={personalData.resumePrimary}
             download="Hamid_Nadeem_Resume.pdf"
             onClick={triggerConfetti}
-            className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-lg text-xs font-semibold uppercase tracking-wider text-[#8B83FF] border border-[#6C63FF]/50 bg-[#6C63FF]/10 hover:bg-gradient-to-r hover:from-[#6C63FF] hover:to-[#00D9FF] hover:text-white hover:border-transparent hover:-translate-y-0.5 shadow-md shadow-[#6C63FF]/15 transition-all duration-300"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#f0f6fc] bg-[#21262d] border border-[#30363d] hover:bg-[#30363d] hover:border-[#58a6ff]/50 transition-all duration-200"
           >
-            <Download className="w-4 h-4" />
+            <Download className="w-4 h-4 text-[#58a6ff]" />
             <span>Download Resume</span>
           </a>
         </motion.div>
 
-        {/* Social Icons */}
+        {/* Social Links */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.5 }}
-          className="flex items-center gap-3.5"
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="flex items-center gap-3"
         >
           <a
             href={personalData.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-11 h-11 rounded-lg border border-[#6C63FF]/20 bg-[#121628]/60 flex items-center justify-center text-slate-400 hover:text-white hover:border-[#6C63FF] hover:bg-[#6C63FF]/20 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(108,99,255,0.3)] transition-all duration-300"
+            className="w-10 h-10 rounded-lg bg-[#161b22] border border-[#30363d] flex items-center justify-center text-[#8b949e] hover:text-[#f0f6fc] hover:border-[#58a6ff] hover:bg-[#21262d] transition-all"
             title="GitHub Profile"
+            aria-label="GitHub Profile"
           >
-            <Github className="w-5 h-5" />
+            <Github className="w-4 h-4" />
           </a>
           <a
             href={personalData.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-11 h-11 rounded-lg border border-[#6C63FF]/20 bg-[#121628]/60 flex items-center justify-center text-slate-400 hover:text-[#00D9FF] hover:border-[#00D9FF] hover:bg-[#00D9FF]/10 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(0,217,255,0.3)] transition-all duration-300"
+            className="w-10 h-10 rounded-lg bg-[#161b22] border border-[#30363d] flex items-center justify-center text-[#8b949e] hover:text-[#58a6ff] hover:border-[#58a6ff] hover:bg-[#21262d] transition-all"
             title="LinkedIn Profile"
+            aria-label="LinkedIn Profile"
           >
-            <Linkedin className="w-5 h-5" />
+            <Linkedin className="w-4 h-4" />
           </a>
           <a
             href={`mailto:${personalData.email}`}
-            className="w-11 h-11 rounded-lg border border-[#6C63FF]/20 bg-[#121628]/60 flex items-center justify-center text-slate-400 hover:text-[#FF6B9D] hover:border-[#FF6B9D] hover:bg-[#FF6B9D]/10 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(255,107,157,0.3)] transition-all duration-300"
+            className="w-10 h-10 rounded-lg bg-[#161b22] border border-[#30363d] flex items-center justify-center text-[#8b949e] hover:text-[#38bdf8] hover:border-[#38bdf8] hover:bg-[#21262d] transition-all"
             title="Send Email"
+            aria-label="Send Email"
           >
-            <Mail className="w-5 h-5" />
+            <Mail className="w-4 h-4" />
           </a>
         </motion.div>
       </div>
 
-      {/* Scroll Mouse Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 0.8 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 pointer-events-none opacity-75"
-      >
-        <div className="w-5 h-9 border-2 border-[#6C63FF]/40 rounded-full flex justify-center p-1">
-          <div className="w-1 h-2 bg-[#6C63FF] rounded-full animate-scroll-wheel" />
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-1.5 pointer-events-none opacity-60">
+        <div className="w-4 h-7 border border-[#30363d] rounded-full flex justify-center p-0.5">
+          <div className="w-1 h-1.5 bg-[#58a6ff] rounded-full animate-scroll-wheel" />
         </div>
-        <span className="text-[10px] uppercase tracking-widest text-slate-500 font-medium">Scroll</span>
-      </motion.div>
+        <span className="text-[10px] uppercase font-mono tracking-widest text-[#8b949e]">Scroll</span>
+      </div>
     </section>
   );
 }

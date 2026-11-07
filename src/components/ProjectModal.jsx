@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ExternalLink, Github, CheckCircle2, Layers } from 'lucide-react';
+import { X, ExternalLink, Github, CheckCircle2, Layers, AlertCircle } from 'lucide-react';
 
 export default function ProjectModal({ project, onClose }) {
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [onClose]);
+
   if (!project) return null;
 
   return (
@@ -14,118 +22,107 @@ export default function ProjectModal({ project, onClose }) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
-          className="fixed inset-0 bg-black/80 backdrop-blur-md"
+          className="fixed inset-0 bg-[#0d1117]/80 backdrop-blur-sm"
         />
 
         {/* Modal Window */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.95, y: 20 }}
+          initial={{ opacity: 0, scale: 0.96, y: 15 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.95, y: 20 }}
-          transition={{ duration: 0.3 }}
-          className="relative w-full max-w-2xl bg-[#0C0F1A] border border-[#6C63FF]/30 rounded-2xl shadow-2xl p-6 sm:p-8 z-10 overflow-hidden"
+          exit={{ opacity: 0, scale: 0.96, y: 15 }}
+          transition={{ duration: 0.25 }}
+          className="relative w-full max-w-2xl bg-[#161b22] border border-[#30363d] rounded-2xl shadow-2xl p-6 sm:p-8 z-10 overflow-hidden max-h-[90vh] overflow-y-auto"
         >
-          {/* Top Gradient Bar */}
-          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#6C63FF] via-[#00D9FF] to-[#FF6B9D]" />
+          {/* Top Subtle Border Bar */}
+          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#58a6ff] via-[#38bdf8] to-[#3fb950]" />
 
           {/* Close Button */}
           <button
             onClick={onClose}
-            className="absolute top-5 right-5 p-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 transition-colors"
+            className="absolute top-5 right-5 p-2 rounded-lg text-[#8b949e] hover:text-[#f0f6fc] hover:bg-[#21262d] transition-colors"
             aria-label="Close project modal"
           >
             <X className="w-5 h-5" />
           </button>
 
-          {/* Header info */}
-          <div className="flex items-center gap-3 mb-2">
-            <span className="text-3xl">{project.icon}</span>
-            <div>
-              <span className="text-xs uppercase tracking-widest text-[#00D9FF] font-semibold">
-                {project.number} • {project.badge}
+          {/* Header */}
+          <div className="mb-4 pr-8">
+            <div className="flex items-center gap-2 mb-1.5">
+              <span className="text-xs font-mono font-medium text-[#58a6ff]">
+                {project.number}
               </span>
-              <h3 className="font-heading font-bold text-2xl text-white">
-                {project.title}
-              </h3>
+              <span className="text-[#30363d]">•</span>
+              <span className="text-xs font-mono text-[#8b949e]">
+                {project.badge}
+              </span>
             </div>
+            <h3 className="font-heading font-bold text-2xl text-[#f0f6fc]">
+              {project.title}
+            </h3>
           </div>
 
-          {/* Description */}
-          <p className="text-slate-300 text-sm leading-relaxed my-4 font-light">
+          {/* Detailed Description */}
+          <p className="text-xs sm:text-sm text-[#c9d1d9] leading-relaxed my-4 font-light">
             {project.longDescription || project.description}
           </p>
 
-          {/* Project Note if available */}
+          {/* Note if present */}
           {project.note && (
-            <div className="my-3 px-3.5 py-2.5 rounded-xl bg-[#00D9FF]/10 border border-[#00D9FF]/20 text-xs text-slate-300 flex items-start gap-2">
-              <span className="text-[#00D9FF] font-semibold shrink-0">Note:</span>
-              <span className="font-light leading-relaxed">{project.note}</span>
+            <div className="my-4 p-3.5 rounded-lg bg-[#0d1117] border border-[#30363d] text-xs text-[#8b949e] flex items-start gap-2.5">
+              <AlertCircle className="w-4 h-4 text-[#58a6ff] shrink-0 mt-0.5" />
+              <div className="leading-relaxed font-light">
+                <span className="font-semibold text-[#c9d1d9]">Technical Note: </span>
+                {project.note}
+              </div>
             </div>
           )}
 
-          {/* Key Highlights */}
-          {project.highlights && (
-            <div className="my-5 p-4 rounded-xl bg-[#121628]/80 border border-[#6C63FF]/15 space-y-2">
-              <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#8B83FF]">
+          {/* Full Features & Architecture */}
+          {project.features && (
+            <div className="my-5 p-4 rounded-xl bg-[#0d1117] border border-[#30363d] space-y-2.5">
+              <div className="flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-[#58a6ff]">
                 <Layers className="w-4 h-4" />
-                <span>Key Highlights & Architecture</span>
+                <span>Features & Architecture Highlights</span>
               </div>
-              <ul className="space-y-1.5 text-xs text-slate-300">
-                {project.highlights.map((h, i) => (
-                  <li key={i} className="flex items-start gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#00D9FF] shrink-0 mt-0.5" />
-                    <span>{h}</span>
+              <ul className="space-y-2 text-xs text-[#c9d1d9]">
+                {project.features.map((feat, i) => (
+                  <li key={i} className="flex items-start gap-2.5 leading-relaxed font-light">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#3fb950] shrink-0 mt-0.5" />
+                    <span>{feat}</span>
                   </li>
                 ))}
               </ul>
             </div>
           )}
 
-          {/* Architecture Decisions if available */}
-          {project.decisions && (
-            <div className="my-4 p-4 rounded-xl bg-[#121628]/80 border border-[#6C63FF]/15 space-y-2.5">
-              <div className="text-xs font-semibold uppercase tracking-wider text-[#00D9FF]">
-                Architectural Decisions
-              </div>
-              <div className="space-y-2 text-xs">
-                {project.decisions.map((d, i) => (
-                  <div key={i} className="p-2.5 rounded-lg bg-[#06080F]/50 border border-white/5">
-                    <div className="font-medium text-white">{d.title}</div>
-                    <div className="text-slate-400 font-light mt-0.5 leading-relaxed">{d.text}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Tech Tags */}
+          {/* Technology Stack Tags */}
           <div className="my-5">
-            <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">
-              Technologies Used
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {project.tags.map((tag) => (
+            <span className="text-xs font-mono uppercase text-[#8b949e] block mb-2">
+              Technology Stack
+            </span>
+            <div className="flex flex-wrap gap-1.5">
+              {project.stack.map((tech) => (
                 <span
-                  key={tag}
-                  className="px-3 py-1 rounded-full text-xs font-medium bg-[#6C63FF]/10 text-[#8B83FF] border border-[#6C63FF]/30"
+                  key={tech}
+                  className="px-2.5 py-1 rounded text-xs font-mono bg-[#0d1117] text-[#c9d1d9] border border-[#30363d]"
                 >
-                  {tag}
+                  {tech}
                 </span>
               ))}
             </div>
           </div>
 
           {/* Action Links */}
-          <div className="flex flex-wrap gap-3 pt-4 border-t border-white/10">
+          <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-[#30363d]">
             {project.live && (
               <a
                 href={project.live}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-xs font-semibold uppercase tracking-wider text-white gradient-bg-primary shadow-md shadow-[#6C63FF]/20 hover:shadow-[#6C63FF]/40 hover:-translate-y-0.5 transition-all"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-xs font-semibold uppercase tracking-wider text-white bg-[#1f6feb] hover:bg-[#388bfd] transition-all"
               >
-                <ExternalLink className="w-4 h-4" />
-                <span>Live Demo</span>
+                <span>Open Live Demo</span>
+                <ExternalLink className="w-3.5 h-3.5" />
               </a>
             )}
             {project.github && (
@@ -133,11 +130,16 @@ export default function ProjectModal({ project, onClose }) {
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-xs font-semibold uppercase tracking-wider text-slate-200 border border-white/15 bg-white/5 hover:bg-[#6C63FF]/10 hover:border-[#6C63FF] hover:text-[#8B83FF] hover:-translate-y-0.5 transition-all"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-xs font-semibold uppercase tracking-wider text-[#c9d1d9] bg-[#21262d] border border-[#30363d] hover:bg-[#30363d] hover:text-white transition-all"
               >
-                <Github className="w-4 h-4" />
+                <Github className="w-3.5 h-3.5" />
                 <span>View Source Code</span>
               </a>
+            )}
+            {!project.github && !project.live && (
+              <span className="text-xs font-mono text-[#8b949e] italic">
+                Active in-development project · Repository access available upon request.
+              </span>
             )}
           </div>
         </motion.div>

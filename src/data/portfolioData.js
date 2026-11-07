@@ -1,482 +1,460 @@
+// Hamid Nadeem - Professional Portfolio Data
+// All information verified against project records, repositories, and credentials.
+
 export const personalData = {
   name: "Hamid Nadeem",
   firstName: "Hamid",
   lastName: "Nadeem",
   initials: "HN.",
-  photo: "/profile.png",
-  fallbackPhoto: "https://github.com/hamidnadeem043.png",
-  title: "AI Automation Engineer & Full-Stack AI Engineer",
-  subtitle: "AI Automation Engineer · Full-Stack AI Developer · Python, Django & MERN",
-  tagline: "Architecting autonomous AI workflows, LLM-integrated platforms, and scalable full-stack applications with Python, Django, React, and Gemini API.",
+  headline: "Software Developer | Full-Stack Development | Python & Django | AI/ML & Automation",
+  title: "Software Developer",
+  subtitle: "Software Developer building modern web experiences and exploring intelligent technologies.",
+  supportingText:
+    "Software Engineering student with practical experience in full-stack web development and a dedicated focus on expanding backend expertise with Python and Django, while actively exploring Artificial Intelligence, Machine Learning, and automated workflows.",
+  intro:
+    "I'm a Software Engineering student and developer with hands-on experience in full-stack web development and an interest in Artificial Intelligence and Machine Learning. I enjoy building modern web applications, solving real-world problems, and exploring emerging technologies. Currently, I'm expanding my backend development expertise with Python and Django while moving toward AI-powered automation and intelligent software solutions.",
   location: "Lahore, Pakistan",
-  statusBadge: "AI Automation & Full-Stack · Open to Roles",
-  openTo: "Open to roles as an AI Automation Engineer, Full-Stack AI Engineer, and Python Backend Developer.",
+  statusBadge: "Software Developer · Open to Roles & Internships",
+  openTo: "Open to junior software developer roles, full-stack internships, and Python backend opportunities.",
   email: "hamidnadeemn043@gmail.com",
   github: "https://github.com/hamidnadeem043",
   linkedin: "https://linkedin.com/in/hamid-nadeem043",
   liveUrl: "https://hamidnadeem-portfolio.vercel.app",
   siteRepo: "https://github.com/hamidnadeem043/hamidnadeem-portfolio",
-  university: "Superior University, Lahore",
-  degree: "BS Software Engineering",
-  cgpa: "3.26",
-  semester: "5th Semester Ongoing",
+  photo: "/profile.png",
+  fallbackPhoto: "https://github.com/hamidnadeem043.png",
   resumePrimary: "/Hamid_Nadeem_Resume.pdf",
-  resumeSecondary: "/Hamid_Nadeem_Resume_SE.pdf",
-  bioParagraphs: [
-    "I'm a BS Software Engineering student at Superior University in Lahore (CGPA 3.26, 5th semester), focused on architecting intelligent AI automation workflows and scalable full-stack web applications.",
-    "My development journey began through Apna College's intensive full-stack program and grew through hands-on industry experience — currently interning on-site as a MERN Stack Developer at IIFA Tech and previously completing an internship at Decode Labs.",
-    "My core technical drive is bridging Full-Stack Engineering with AI Automation: building intelligent conversational agents on Google's Gemini API, developing Python automation scripts for data validation and cleaning, constructing Django backend architectures, and deploying production web platforms with real-time WebSockets and Stripe checkout."
-  ],
-  motto: "I see solutions where others see dead ends. Problem-solver by nature, loyal to the work, and I don't stop until it's fixed."
+  university: "Superior University, Lahore",
+  degree: "Bachelor of Science in Software Engineering",
+  cgpa: "3.29 / 4.00",
+  semester: "5th Semester",
+  motto: "Focused on clean architecture, continuous learning, and building practical technology solutions.",
 };
 
-export const nowData = [
-  {
-    kind: "live",
-    title: "AI Automation & LLMs",
-    text: "Designing automated workflows, prompt chains, and intelligent conversational tools with Google Gemini API.",
-  },
-  {
-    kind: "building",
-    title: "Python & Django Backend",
-    text: "Building the backend for Job Portal and engineering Python data validation and transformation pipelines.",
-  },
-  {
-    kind: "live",
-    title: "MERN Intern @ IIFA Tech",
-    text: "On-site full-stack development since June 2026, building REST APIs and React features.",
-  },
-];
+export const educationData = {
+  school: "Superior University, Lahore",
+  degree: "Bachelor of Science in Software Engineering (BS SE)",
+  semester: "5th Semester",
+  cgpa: "3.29 / 4.00",
+  status: "In Progress",
+  summary:
+    "Pursuing rigorous undergraduate coursework in Software Engineering with consistent academic standing, covering data structures, object-oriented programming, database management systems, and software engineering methodologies.",
+};
 
-export const statsData = [
-  { value: "3.26", label: "University CGPA", suffix: "" },
-  { value: "2", label: "Internships Completed", suffix: "" },
-  { value: "8+", label: "Top GitHub Projects", suffix: "" },
-  { value: "5th", label: "Semester Ongoing", suffix: "" },
-];
+export const aboutData = {
+  paragraphs: [
+    "I am currently pursuing a Bachelor of Science in Software Engineering at Superior University in Lahore, currently in my 5th semester with a CGPA of 3.29/4.00. My technical foundation is built on practical problem-solving and full-stack web development.",
+    "My hands-on experience includes completing a Full-Stack Development internship at Decode Labs working across the MERN stack, followed by 3+ months of onsite technical experience as a Full-Stack Development & AI/ML Trainee at IIFA Tech. Through these positions, I have gained real-world exposure to frontend component architecture, RESTful API design, database integration, and software development workflows.",
+    "Currently, I am actively expanding my backend development expertise with Python, Django, and Django REST Framework. In parallel, I am actively learning and exploring Artificial Intelligence, Machine Learning fundamentals, and AI-powered automation to build intelligent, efficient software applications.",
+  ],
+  highlights: [
+    { label: "University", value: "Superior University, Lahore" },
+    { label: "Degree", value: "BS Software Engineering" },
+    { label: "Semester & CGPA", value: "5th Semester · 3.29 / 4.00" },
+    { label: "Onsite Experience", value: "3+ Months at IIFA Tech" },
+    { label: "Previous Internship", value: "Decode Labs (MERN Stack)" },
+    { label: "Backend Focus", value: "Python, Django & DRF" },
+  ],
+};
 
 export const experienceData = [
   {
-    id: "exp-1",
-    role: "MERN Stack Intern",
+    id: "iifa-tech",
+    role: "Full-Stack Development & AI/ML Trainee",
     company: "IIFA Tech",
-    location: "On-site · Lahore",
-    period: "June 2026 – Present",
-    status: "Current Role",
-    bullets: [
-      "Building full-stack features with the MERN stack and REST API endpoints, and taking part in structured code reviews.",
-      "Worked through structured assignments in advanced JavaScript and React: hooks, custom hooks, Context API, routing, API calls, Redux Toolkit and performance optimization."
+    location: "Onsite · Lahore",
+    period: "June 2026 – Present (3+ Months)",
+    status: "Current Experience",
+    summary:
+      "Gaining intensive practical onsite experience in full-stack web application development and foundational Artificial Intelligence and Machine Learning concepts.",
+    areas: [
+      "Full-stack web application development and functionality",
+      "Frontend engineering and responsive UI implementation",
+      "Backend development concepts and RESTful API integration",
+      "Python programming fundamentals and backend logic",
+      "Artificial Intelligence and Machine Learning fundamentals",
+      "Exploring AI integration into software applications",
+      "Practical technical assignments and project-based workflows",
+      "Software development best practices and collaborative problem-solving",
     ],
-    techStack: ["React", "Node.js", "Express", "MongoDB", "Redux Toolkit", "REST APIs"]
+    techStack: [
+      "React.js",
+      "Node.js",
+      "Express.js",
+      "Python",
+      "REST APIs",
+      "AI/ML Fundamentals",
+    ],
   },
   {
-    id: "exp-2",
-    role: "Full-Stack Web Development Intern",
+    id: "decode-labs",
+    role: "Full-Stack Development Intern",
     company: "Decode Labs",
     location: "Remote",
-    period: "May 18 – June 18, 2026",
-    status: "Completed",
-    bullets: [
-      "Built full-stack features with React, Node.js, Express and MongoDB.",
-      "Designed REST API endpoints, fixed bugs across the stack and took part in structured code reviews."
+    period: "May 18, 2026 – June 18, 2026",
+    status: "Completed Internship",
+    summary:
+      "Completed a structured web development internship focused on building, testing, and debugging MERN stack features in a collaborative environment.",
+    areas: [
+      "Developed modular frontend interfaces using React.js",
+      "Engineered backend REST API endpoints with Node.js and Express.js",
+      "Managed application state and MongoDB document schemas",
+      "Debugged and resolved issues across the full application stack",
+      "Participated in structured peer code reviews and team workflows",
+      "Gained practical exposure to production-oriented development standards",
     ],
-    techStack: ["React", "Node.js", "Express", "MongoDB", "REST APIs"]
-  }
+    techStack: [
+      "React.js",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "REST APIs",
+      "Git",
+    ],
+  },
 ];
 
 export const skillsCategories = [
   {
-    category: "AI & Automation",
+    category: "Frontend Development",
+    levelNote: "Practical Experience",
     items: [
-      { name: "Gemini API", icon: "🤖", level: "LLM Integration" },
-      { name: "AI Automation", icon: "⚡", level: "Workflow Design" },
-      { name: "Prompt Engineering", icon: "🧠", level: "IBM Certified" },
-      { name: "Python Automation", icon: "🐍", level: "Scripting & Pipelines" },
-      { name: "Data Cleaning", icon: "📊", level: "CSV/JSON Validation" }
-    ]
+      { name: "React.js", level: "Practical Experience" },
+      { name: "JavaScript ES6+", level: "Practical Experience" },
+      { name: "Tailwind CSS", level: "Practical Experience" },
+      { name: "HTML5", level: "Practical Experience" },
+      { name: "CSS3", level: "Practical Experience" },
+      { name: "React Router", level: "Practical Experience" },
+      { name: "Redux Toolkit", level: "Practical Experience" },
+      { name: "Responsive Design", level: "Practical Experience" },
+    ],
   },
   {
-    category: "Python & Django",
+    category: "Backend Development",
+    levelNote: "Practical & Active Learning",
     items: [
-      { name: "Python", icon: "🐍", level: "OOP, Scripts & Logic" },
-      { name: "Django", icon: "🎯", level: "MVT & Models" },
-      { name: "Django Auth", icon: "🔐", level: "Sessions & Users" },
-      { name: "SQLite / ORM", icon: "🗃️", level: "Migrations & Schemas" },
-      { name: "Pillow", icon: "🖼️", level: "Media Processing" }
-    ]
+      { name: "Node.js", level: "Practical Experience" },
+      { name: "Express.js", level: "Practical Experience" },
+      { name: "REST APIs", level: "Practical Experience" },
+      { name: "Python", level: "Currently Learning" },
+      { name: "Django", level: "Currently Learning" },
+      { name: "Django REST Framework", level: "Currently Learning" },
+    ],
   },
   {
-    category: "Frontend",
+    category: "Databases",
+    levelNote: "Practical & Project Use",
     items: [
-      { name: "React", icon: "⚛️", level: "Advanced" },
-      { name: "Tailwind CSS", icon: "🌊", level: "Advanced" },
-      { name: "Redux Toolkit", icon: "🔮", level: "Intermediate" },
-      { name: "Context API", icon: "⚡", level: "Advanced" },
-      { name: "React Router", icon: "🚦", level: "Advanced" },
-      { name: "JavaScript ES6+", icon: "🟨", level: "Advanced" },
-      { name: "HTML5 & CSS3", icon: "🎨", level: "Expert" },
-      { name: "Vite", icon: "⚡", level: "Advanced" }
-    ]
+      { name: "MongoDB", level: "Practical Experience" },
+      { name: "PostgreSQL", level: "Hands-on Project Use" },
+      { name: "Firebase", level: "Hands-on Project Use" },
+      { name: "SQLite", level: "Hands-on Project Use" },
+      { name: "MySQL", level: "Hands-on Project Use" },
+    ],
   },
   {
-    category: "Backend & Database",
+    category: "AI & Machine Learning",
+    levelNote: "Learning & Exploring",
     items: [
-      { name: "Node.js", icon: "🟩", level: "Advanced" },
-      { name: "Express.js", icon: "🚂", level: "Advanced" },
-      { name: "MongoDB", icon: "🍃", level: "Advanced" },
-      { name: "MySQL", icon: "🐬", level: "Intermediate" },
-      { name: "Socket.io", icon: "🔌", level: "Intermediate" },
-      { name: "JWT Auth", icon: "🔐", level: "Advanced" },
-      { name: "REST APIs", icon: "🔗", level: "Advanced" }
-    ]
+      { name: "AI Fundamentals", level: "Currently Learning" },
+      { name: "Machine Learning Fundamentals", level: "Currently Learning" },
+      { name: "Generative AI", level: "Exploring" },
+      { name: "Prompt Engineering", level: "Certified / Exploring" },
+      { name: "Gemini API", level: "Practical Project Use" },
+      { name: "LLM Fundamentals", level: "Exploring" },
+      { name: "AI Integration", level: "Exploring" },
+    ],
   },
   {
-    category: "Cloud, Payments & Tools",
+    category: "Automation & Emerging Tech",
+    levelNote: "Emerging Direction",
     items: [
-      { name: "Stripe API", icon: "💳", level: "Payments Flow" },
-      { name: "Cloudinary", icon: "☁️", level: "Media Management" },
-      { name: "Vercel", icon: "▲", level: "Deployment" },
-      { name: "Railway", icon: "🚃", level: "Persistent Servers" },
-      { name: "Git & GitHub", icon: "🔀", level: "Version Control" },
-      { name: "Docker", icon: "🐳", level: "Studying" },
-      { name: "System Design", icon: "🏗️", level: "Studying" }
-    ]
-  }
+      { name: "AI Automation", level: "Exploring" },
+      { name: "Intelligent Workflows", level: "Exploring" },
+      { name: "API-based Automation", level: "Exploring" },
+      { name: "LLM-powered Applications", level: "Exploring" },
+      { name: "Workflow Integration", level: "Exploring" },
+    ],
+  },
+  {
+    category: "Development Tools",
+    levelNote: "Practical Experience",
+    items: [
+      { name: "Git", level: "Practical Experience" },
+      { name: "GitHub", level: "Practical Experience" },
+      { name: "VS Code", level: "Practical Experience" },
+      { name: "Postman", level: "Practical Experience" },
+      { name: "npm", level: "Practical Experience" },
+    ],
+  },
+];
+
+export const learningPaths = [
+  {
+    id: "python-backend",
+    path: "Path A",
+    title: "Python Backend Development",
+    focus: "Django & Django REST Framework",
+    statusBadge: "Current Core Focus",
+    description:
+      "Deepening backend engineering expertise with Python, focusing on modular architecture, relational data management, and building production-ready RESTful APIs.",
+    topics: [
+      "Python programming fundamentals, OOP & data structures",
+      "Django MVT architecture, models, views, and templates",
+      "Django REST Framework (DRF) for API development",
+      "User authentication, sessions, and permissions",
+      "Django ORM, migrations, and relational database queries",
+      "Database integration with SQLite and PostgreSQL",
+    ],
+  },
+  {
+    id: "ai-ml",
+    path: "Path B",
+    title: "Artificial Intelligence & Machine Learning",
+    focus: "Core Concepts & Practical Integration",
+    statusBadge: "Learning & Exploration",
+    description:
+      "Building a solid academic and practical grounding in Artificial Intelligence and Machine Learning principles, understanding how intelligent models function and integrate into software.",
+    topics: [
+      "Artificial Intelligence foundational principles",
+      "Machine Learning concepts and evaluation metrics",
+      "Generative AI mechanics and prompt engineering techniques",
+      "Large Language Model (LLM) fundamentals",
+      "Practical integration of Gemini API into web applications",
+      "AI-driven software enhancement and feature design",
+    ],
+  },
+  {
+    id: "ai-automation",
+    path: "Path C",
+    title: "AI Automation & Intelligent Workflows",
+    focus: "Emerging Technical Direction",
+    statusBadge: "Emerging Direction",
+    description:
+      "Exploring automation techniques that connect software systems, external APIs, and LLM reasoning to automate repetitive processes and create smart workflows.",
+    topics: [
+      "API-driven workflow automation and orchestration",
+      "LLM-powered task pipelines and multi-step prompt chains",
+      "AI Agent concepts and structured reasoning loops",
+      "Automated data extraction, validation, and reporting",
+      "Business process automation and developer tooling",
+    ],
+  },
 ];
 
 export const projectsData = [
   {
-    id: "ai-chatbot",
+    id: "psp",
     number: "Project 01",
-    title: "AI Chatbot & Assistant",
-    badge: "AI Powered · Gemini API",
-    description: "An intelligent conversational engine built with React, Tailwind CSS and Google Gemini API with markdown rendering, search across past chats, and persistent history.",
-    longDescription: "Interactive AI assistant connecting directly to Google's Gemini API. Features live streaming markdown rendering for code and formatted text, a conversation history sidebar with search across past chats, and full localStorage persistence.",
-    tags: ["Gemini API", "AI Automation", "React", "Tailwind CSS", "Vite"],
-    category: "Frontend & AI",
-    github: "https://github.com/hamidnadeem043/gemini-chatbot-react-tailwind",
-    live: "https://ai-chatbot-react-tailwind.vercel.app",
-    icon: "🤖",
-    note: "Flagship project illustrating real-world LLM API integration and AI assistant UX.",
-    highlights: [
-      "Direct integration with Google's Gemini API for low-latency intelligent responses",
-      "Styled markdown rendering with syntax-highlighted code blocks",
-      "Sidebar conversation drawer with full-text search across past chats",
-      "Client-side persistence across sessions using localStorage"
-    ]
+    title: "Personal Service Platform (PSP)",
+    badge: "Featured Full-Stack Project",
+    status: "Ongoing Project",
+    category: "Full Stack",
+    description:
+      "A service-oriented full-stack web platform built with React 19, TypeScript, and Tailwind CSS v4 on the frontend, powered by an Express.js backend, Neon PostgreSQL with Drizzle ORM, and Firebase Authentication.",
+    longDescription:
+      "Personal Service Platform (PSP) is a modern full-stack web application designed for service-oriented functionality. It features a type-safe frontend built with React 19 and TypeScript, styled using Tailwind CSS v4. The backend is implemented with Express.js, integrating Neon Serverless PostgreSQL through Drizzle ORM for reliable, type-safe database queries. Authentication is managed securely through Firebase Authentication with Google OAuth integration.",
+    stack: [
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS v4",
+      "Express.js",
+      "Neon PostgreSQL",
+      "Drizzle ORM",
+      "Firebase Auth",
+    ],
+    features: [
+      "Modern frontend architecture built with React 19 and TypeScript",
+      "Secure user authentication with Firebase Auth and Google OAuth integration",
+      "Scalable Express.js backend connected to Neon Serverless PostgreSQL",
+      "Type-safe database schemas and migrations managed via Drizzle ORM",
+      "Responsive, clean user interface styled with Tailwind CSS v4",
+      "Service-oriented platform workflows and data management",
+    ],
+    github: "",
+    live: "",
   },
   {
-    id: "skillbridge",
+    id: "job-portal",
     number: "Project 02",
-    title: "SkillBridge",
-    badge: "Full-Stack MERN Flagship",
-    description: "Full freelance marketplace in the style of Fiverr with real-time Socket.io chat, Stripe payments, JWT auth, and Cloudinary media.",
-    longDescription: "SkillBridge is a production-grade freelance marketplace built with the MERN stack. Buyers and sellers can browse gigs, exchange real-time messages via WebSockets (Socket.io), pay securely through Stripe Elements, and leave reviews. The API is hosted on Railway for persistent WebSocket connections, while the frontend is deployed on Vercel.",
-    tags: ["React", "Redux Toolkit", "Tailwind CSS", "Node.js", "Express", "MongoDB", "Socket.io", "Stripe", "Cloudinary"],
-    category: "Full Stack",
-    github: "https://github.com/hamidnadeem043/skillbridge",
-    live: "https://skillbridge-gamma-eight.vercel.app",
-    icon: "🏪",
-    note: "Stripe runs in test mode, because Stripe does not support payouts in Pakistan.",
-    highlights: [
-      "Real-time chat messaging with unread badges powered by Socket.io",
-      "End-to-end card payment flow integrated with Stripe Elements and Payment Intents",
-      "JWT authentication stored in httpOnly cookies across Vercel & Railway domains",
-      "Media management and image transformations with Cloudinary",
-      "Optimized schema: orders store both buyer and seller IDs to eliminate redundant joins"
+    title: "Job Portal Application",
+    badge: "Frontend Web Application",
+    status: "Frontend Complete",
+    category: "Frontend",
+    description:
+      "A comprehensive job and internship portal frontend built with React.js, Tailwind CSS, and React Router, featuring dual-sided role-based interfaces for job seekers and recruiters.",
+    longDescription:
+      "A complete frontend web application for a job portal providing tailored experiences for both job seekers and recruiters. Seekers can browse job listings, view detailed job descriptions, manage their profile, and track applications. Recruiters have access to a dedicated dashboard to post, manage, and edit job listings, as well as review applicant information. Built using modular, reusable components and React Router.",
+    stack: ["React.js", "JavaScript ES6+", "Tailwind CSS", "React Router"],
+    features: [
+      "Role-based authentication interface for job seekers and recruiters",
+      "Job listings directory with search and category filtering",
+      "Detailed job description pages with application submission workflow",
+      "Seeker dashboard: profile management and 'My Applications' tracker",
+      "Recruiter dashboard: post new jobs, manage/edit postings, and view applicant details",
+      "Modular, reusable UI components with responsive layouts across mobile and desktop",
     ],
-    decisions: [
-      {
-        title: "API runs on Railway, not Vercel",
-        text: "Socket.io needs a server that stays connected. Vercel's serverless functions start per request, so the backend needed an always-on host."
-      },
-      {
-        title: "Cookies across two domains",
-        text: "Frontend and API live on different domains, so JWT cookie required sameSite none and secure, with CORS allowed on both Express and Socket.io."
-      },
-      {
-        title: "Orders store both user IDs",
-        text: "Each order keeps the buyer ID and the seller ID, which saves a lookup through the gig on every read."
-      }
-    ]
+    note: "Frontend implementation complete with client state and mock data; planned for Django REST Framework backend integration.",
+    github: "https://github.com/hamidnadeem043/JOB-PORTAL",
+    live: "",
   },
   {
     id: "django-blog",
     number: "Project 03",
-    title: "Django Blog & User Engine",
-    badge: "Python & Django",
-    description: "Full-stack blog platform built with Python & Django featuring user registration/login, MVT architecture, post CRUD, Pillow image uploads, and SQLite database.",
-    longDescription: "A comprehensive Django web application built with Python. Features user registration, authentication (login/logout), post listing and detail pages, dynamic image uploads via Pillow, customized Django admin panel, and MVT (Model-View-Template) architecture with SQLite relational database.",
-    tags: ["Python", "Django", "SQLite", "Pillow", "MVT Architecture", "Auth"],
+    title: "Beginner Django Blog Project",
+    badge: "Python & Django Project",
+    status: "Completed Project",
     category: "Python & Django",
-    github: "https://github.com/hamidnadeem043/Beginner-Django-blog-learning-project",
+    description:
+      "A full-stack blog application developed with Python and Django to practice backend fundamentals, MVT architecture, user authentication, image uploads, and database ORM operations.",
+    longDescription:
+      "Developed to gain practical hands-on experience with Django and Python backend engineering. The application implements user registration, login, and logout workflows, post creation with title, caption, unique slug generation, image uploads via Pillow, and relational database CRUD operations using the Django ORM and SQLite.",
+    stack: ["Python", "Django", "SQLite", "Pillow", "HTML", "CSS"],
+    features: [
+      "User authentication system with registration, login, and secure logout",
+      "Blog post CRUD operations with title, caption, and unique slug generation",
+      "Image upload functionality handled dynamically using Pillow",
+      "Django ORM models, migrations, and customized administrative dashboard",
+      "Model-View-Template (MVT) architecture with reusable post and user apps",
+    ],
+    github:
+      "https://github.com/hamidnadeem043/Beginner-Django-blog-learning-project",
     live: "",
-    icon: "🐍",
-    note: "Built to master Python backend development, Django MVT architecture, database migrations, and authentication workflows.",
-    highlights: [
-      "Django MVT architecture with modular posts and users applications",
-      "User authentication workflows: registration, login, and secure session logout",
-      "Dynamic media handling with Pillow image processing and uploads",
-      "Django ORM migrations with SQLite relational data schema"
-    ]
   },
   {
-    id: "python-cleaner",
+    id: "skillbridge",
     number: "Project 04",
-    title: "Python Data Cleaner & Reporter",
-    badge: "Python Automation",
-    description: "Python automation script that ingests malformed CSVs, validates records, handles missing data, logs execution, and outputs clean CSVs with JSON audit reports.",
-    longDescription: "An automated Python data cleaning and validation tool developed with OOP principles. Ingests raw, malformed CSV datasets, normalizes fields, trims anomalies, handles missing values, writes comprehensive process logs to cleaner.log, and generates both cleaned CSV files and detailed structured JSON audit reports.",
-    tags: ["Python", "OOP", "Data Validation", "File Handling", "Logging", "Automation"],
-    category: "Python & Django",
-    github: "https://github.com/hamidnadeem043/Data-Cleaner-mini-python-project",
-    live: "",
-    icon: "📊",
-    note: "Demonstrates Python scripting, decorators, logging, error handling, and structured data transformation pipelines.",
-    highlights: [
-      "Automated ingestion and normalization of dirty CSV records",
-      "Generates structured JSON validation reports and audit logs",
-      "Object-oriented design with modular transformation functions",
-      "Comprehensive file handling, data sanitization, and logging to cleaner.log"
-    ]
+    title: "SkillBridge — Freelance Marketplace",
+    badge: "Full-Stack MERN Application",
+    status: "Live Project",
+    category: "Full Stack",
+    description:
+      "A full-stack freelance marketplace built with the MERN stack featuring real-time chat via Socket.io, Stripe card payments in test mode, JWT authentication, and Cloudinary media management.",
+    longDescription:
+      "SkillBridge is an end-to-end freelance marketplace platform modeled after modern gig platforms. It enables clients to browse services, communicate with sellers in real time using WebSockets (Socket.io), checkout securely via Stripe Elements, and upload media to Cloudinary. Deployed with frontend on Vercel and API on Railway for persistent WebSocket connections.",
+    stack: [
+      "React.js",
+      "Redux Toolkit",
+      "Tailwind CSS",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Socket.io",
+      "Stripe",
+      "Cloudinary",
+    ],
+    features: [
+      "Real-time bidirectional messaging with unread count badges via Socket.io",
+      "Card payment checkout integrated with Stripe Elements (test mode)",
+      "JWT authentication with httpOnly cookie handling across domains",
+      "Cloudinary media upload integration for user avatars and gig images",
+      "Role-based views for clients and freelancers with gig management and reviews",
+    ],
+    github: "https://github.com/hamidnadeem043/skillbridge",
+    live: "https://skillbridge-gamma-eight.vercel.app",
   },
   {
-    id: "job-portal",
+    id: "ai-chatbot",
     number: "Project 05",
-    title: "Job Portal",
-    badge: "Frontend · Django Backend Next",
-    description: "A job board with separate seeker and recruiter sides featuring job listings, application workflows, and recruiter management.",
-    longDescription: "A comprehensive job board application with dual-sided user flows for job seekers and recruiters. Built with React, Tailwind CSS, and React Router. Complete frontend running on sample data with an auth context and reusable components, with Python & Django backend in active development.",
-    tags: ["React", "Tailwind CSS", "React Router", "Context API", "Python & Django Backend"],
-    category: "Python & Django",
-    github: "https://github.com/hamidnadeem043/JOB-PORTAL",
-    live: "",
-    icon: "💼",
-    note: "The frontend is complete and runs on sample data. There is no server yet. I'm learning Python and Django to build it.",
-    highlights: [
-      "Job listing and job detail pages with search and category filtering",
-      "Seeker side: user dashboard, profile management, and submitted application tracker",
-      "Recruiter side: post new jobs, edit existing postings, manage listings, and review applicants",
-      "Modular component architecture with Auth Context state handling"
-    ]
-  },
-  {
-    id: "nexchat",
-    number: "Project 06",
-    title: "NexChat — Workspace Group Chat",
-    badge: "Full Stack & Multi-Tenant",
-    description: "A workspace-based group chat web app built with Node.js, Express, MongoDB & EJS featuring multi-tenant project workspaces and cookie auth.",
-    longDescription: "NexChat is a collaborative workspace chat application built with Node.js, Express, MongoDB, and EJS. Features multi-tenant project workspaces, cookie-based authentication, and client-side message threading for organized team communication.",
-    tags: ["Node.js", "Express", "MongoDB", "EJS", "Multi-Tenant", "Cookie Auth"],
-    category: "Full Stack",
-    github: "https://github.com/hamidnadeem043/nexchat-group-chat-app",
-    live: "",
-    icon: "💬",
-    note: "Built to explore multi-tenant data architecture and workspace scoping in MongoDB.",
-    highlights: [
-      "Multi-tenant workspace architecture with project isolation",
-      "Secure cookie-based user session authentication",
-      "Organized message threads and room communication",
-      "Responsive templating built with EJS and server-side routes"
-    ]
-  },
-  {
-    id: "inkwell",
-    number: "Project 07",
-    title: "Inkwell — Blog CMS",
-    badge: "Full Stack CMS",
-    description: "A blog CMS with a React frontend and an Express REST API featuring JWT auth, personal dashboard, editor, and date-sorted feed.",
-    longDescription: "Inkwell is a modern blogging content management system. Features user registration and login with JWT, a personal dashboard to edit and delete posts and drafts, an author editor for composing articles, and a public feed sorted chronologically.",
-    tags: ["React", "Express", "Node.js", "JWT Auth", "Context API"],
-    category: "Full Stack",
-    github: "https://github.com/hamidnadeem043/Inkwell-Blog-CMS",
-    live: "https://inkwell-blog-cms.vercel.app",
-    icon: "📝",
-    note: "The API keeps data in memory, so posts reset when the server restarts. Adding a database is the next step.",
-    highlights: [
-      "User authentication and protected routes implemented with JWT",
-      "Personal author dashboard to manage posts, draft articles, and delete content",
-      "Rich content composition editor with date-sorted public article feed",
-      "Auth state handled seamlessly with React Context API"
-    ]
+    title: "AI Chatbot Application",
+    badge: "AI Exploration & Frontend",
+    status: "Live Project",
+    category: "AI & Frontend",
+    description:
+      "An interactive AI conversational web assistant built with React and Tailwind CSS, connected directly to Google's Gemini API with markdown rendering and localStorage chat persistence.",
+    longDescription:
+      "Built as a practical exploration of AI APIs and modern conversational interfaces. It integrates Google's Gemini API to generate real-time responses formatted with styled markdown, supporting syntax-highlighted code snippets, conversation search, and local storage retention.",
+    stack: ["React.js", "Tailwind CSS", "Gemini API", "Vite", "JavaScript ES6+"],
+    features: [
+      "Direct Google Gemini API integration for conversational intelligence",
+      "Styled markdown response rendering with syntax-highlighted code blocks",
+      "Conversation history sidebar with full-text search across past chats",
+      "Persistent conversation retention in localStorage across browser sessions",
+    ],
+    github:
+      "https://github.com/hamidnadeem043/gemini-chatbot-react-tailwind",
+    live: "https://ai-chatbot-react-tailwind.vercel.app",
   },
   {
     id: "inventory",
-    number: "Project 08",
+    number: "Project 06",
     title: "Inventory Management System",
-    badge: "Backend & SQL",
-    description: "An admin app for tracking products and stock with session auth, low stock alerts (< 10), category filtering, and Railway deployment.",
-    longDescription: "An administrative web application for tracking products, quantities, and stock levels. Built with Node.js, Express, and MySQL, with server-rendered EJS templates and deployed on Railway. Features admin login with express-session, dynamic low-stock alerts, and a glassmorphism interface.",
-    tags: ["Node.js", "Express", "MySQL", "EJS", "Railway"],
+    badge: "Backend & SQL Database",
+    status: "Live Project",
     category: "Backend & SQL",
-    github: "https://github.com/hamidnadeem043/Inventory-Management-System",
+    description:
+      "A full-stack administrative application for tracking products, stock levels, and categories built with Node.js, Express, and MySQL with session-based security, deployed on Railway.",
+    longDescription:
+      "Designed for product and inventory oversight, this server-rendered application features administrative authentication using express-session, full CRUD operations for product records, category filtering, search, and automated warning notifications for items with low stock.",
+    stack: ["Node.js", "Express.js", "MySQL", "EJS", "Railway"],
+    features: [
+      "Session-based admin authentication with express-session and MySQL database",
+      "Product management with name search, category filter, and live quantity tracking",
+      "Automated visual low-stock alerts for quantities under 10 units",
+      "Server-side rendered EJS templates with glassmorphic dashboard UI hosted on Railway",
+    ],
+    github:
+      "https://github.com/hamidnadeem043/Inventory-Management-System",
     live: "https://inventory-management-system-production-1962.up.railway.app",
-    icon: "📦",
-    note: "Server-rendered with EJS on a MySQL database. Hosted on Railway.",
-    highlights: [
-      "Admin login secured with express-session and relational MySQL database",
-      "Add, edit, and delete products with search by name and category filtering",
-      "Automated low-stock visual warning triggers for quantities under 10",
-      "Dashboard with live inventory counts and glassmorphism interface deployed on Railway"
-    ]
-  }
-];
-
-export const extraProjects = [
-  "Bus Reservation System (GUI Desktop Java)",
-  "Bus Reservation System (DSA C++)",
-  "Bank Management System (C++)",
-  "Weather App API (JavaScript)",
-  "Pizza Delivery App (React / OIBSIP)",
-  "Simon Says Game (Vanilla JavaScript ES6+)",
-  "Spotify UI Clone (HTML5 & CSS3)"
-];
-
-// Project-Skill Matrix
-export const matrixProjects = [
-  { id: "ai", short: "AI Chatbot" },
-  { id: "sb", short: "SkillBridge" },
-  { id: "dj", short: "Django Blog" },
-  { id: "py", short: "Data Cleaner" },
-  { id: "jp", short: "Job Portal" },
-  { id: "nex", short: "NexChat" },
-  { id: "ink", short: "Inkwell" },
-  { id: "inv", short: "Inventory" },
-];
-
-export const matrix = [
-  { skill: "Gemini API & LLMs", used: ["ai"] },
-  { skill: "Python Automation", used: ["py", "dj"] },
-  { skill: "Django Framework", used: ["dj"] },
-  { skill: "React & Next Patterns", used: ["ai", "sb", "jp", "ink"] },
-  { skill: "Tailwind CSS", used: ["ai", "sb", "jp"] },
-  { skill: "Redux Toolkit", used: ["sb"] },
-  { skill: "Node.js & Express", used: ["sb", "ink", "inv", "nex"] },
-  { skill: "MongoDB & Mongoose", used: ["sb", "nex"] },
-  { skill: "MySQL & SQLite", used: ["inv", "dj"] },
-  { skill: "JWT & Cookie Auth", used: ["sb", "ink"] },
-  { skill: "Socket.io WebSockets", used: ["sb"] },
-  { skill: "Stripe Checkout", used: ["sb"] },
-  { skill: "Cloudinary CDN", used: ["sb"] },
-  { skill: "Vercel & Railway Cloud", used: ["ai", "sb", "ink", "inv"] },
-];
-
-export const matrixNote =
-  "Matrix reflects shipped codebase implementations. Internship work at IIFA Tech and Decode Labs also leveraged React, Node.js, Express, MongoDB and REST APIs.";
-
-export const learningTopics = [
-  {
-    title: "AI Automation & Agents",
-    desc: "Autonomous workflow design, multi-step LLM chains, Gemini API integration, and agentic tool-use.",
-    icon: "🤖",
-    state: "Active Focus"
   },
   {
-    title: "Python & Data Pipelines",
-    desc: "Advanced OOP, decorators, generators, data cleaning scripts, CSV/JSON validation, and process logging.",
-    icon: "🐍",
-    state: "Production Ready"
+    id: "python-cleaner",
+    number: "Project 07",
+    title: "Python Data Cleaner & Reporter",
+    badge: "Python Automation Tool",
+    status: "Completed Tool",
+    category: "Python & Django",
+    description:
+      "A Python automation utility built with OOP principles that cleans raw CSV datasets, validates records, handles missing fields, logs execution, and outputs clean CSVs with JSON audit reports.",
+    longDescription:
+      "A practical automation script demonstrating Python fundamentals, file handling, structured logging, and data validation. It ingests messy CSV files, normalizes data columns, handles null values, outputs sanitized CSVs, logs all actions to cleaner.log, and generates a structured JSON validation summary.",
+    stack: ["Python", "OOP", "CSV Handling", "JSON", "Logging"],
+    features: [
+      "Automated ingestion and normalization of raw CSV records",
+      "Detection and handling of invalid, missing, or malformed data rows",
+      "Generates clean output CSV and detailed JSON audit summaries",
+      "Execution tracking with Python's built-in logging module to cleaner.log",
+    ],
+    github:
+      "https://github.com/hamidnadeem043/Data-Cleaner-mini-python-project",
+    live: "",
   },
-  {
-    title: "Django Backend Architecture",
-    desc: "MVT pattern, ORM data modeling, user authentication, Pillow media processing, and SQLite/PostgreSQL.",
-    icon: "🎯",
-    state: "Building"
-  },
-  {
-    title: "Full-Stack MERN & WebSockets",
-    desc: "React 19, Redux Toolkit, Node.js, Express, MongoDB, Socket.io real-time chat, and Stripe payments.",
-    icon: "⚛️",
-    state: "Shipped & Tested"
-  },
-  {
-    title: "System Design & Scale",
-    desc: "Scalable APIs, caching layers, microservices, connection persistence, and distributed state.",
-    icon: "🏗️",
-    state: "Studying"
-  },
-  {
-    title: "Docker & Containerization",
-    desc: "Containerization, environment isolation, Dockerfiles, and cloud deployment on Vercel & Railway.",
-    icon: "🐳",
-    state: "Hands-on Practice"
-  }
 ];
 
 export const certsData = [
   {
-    title: "Networking Basics",
-    issuer: "Cisco Networking Academy",
-    date: "May 2026",
-    icon: "🌐",
-    simulation: false
-  },
-  {
-    title: "Prompt Engineering for Everyone",
-    issuer: "Cognitive Class (IBM)",
-    date: "May 2026",
-    icon: "🧠",
-    simulation: false
-  },
-  {
-    title: "Front-End Software Engineering",
-    issuer: "Skyscanner on Forage",
-    date: "May 2026",
-    icon: "💻",
-    simulation: true
-  },
-  {
     title: "GenAI Powered Data Analytics",
     issuer: "Tata on Forage",
     date: "May 2026",
-    icon: "📊",
-    simulation: true
+    type: "Job Simulation",
+    skills: ["Generative AI", "Data Analytics", "AI Insights", "Data Visualization"],
   },
   {
     title: "Robotics & Controls Simulation",
     issuer: "Johnson & Johnson on Forage",
     date: "May 2026",
-    icon: "🤖",
-    simulation: true
+    type: "Job Simulation",
+    skills: ["Robotics Fundamentals", "Control Systems", "Engineering Logic"],
   },
   {
-    title: "Computer Foundations Certificate (Office 2019)",
-    issuer: "Peak Solution College",
-    date: "Oct 2022",
-    icon: "🖥️",
-    simulation: false
-  }
-];
-
-export const goalsData = [
-  {
-    emoji: "🤖",
-    title: "AI Automation Engineering",
-    text: "Architect autonomous agent pipelines, intelligent workflow orchestrations, and LLM API integrations with Python"
+    title: "Prompt Engineering for Everyone",
+    issuer: "IBM / Cognitive Class",
+    date: "May 2026",
+    type: "Course Certificate",
+    skills: ["Prompt Engineering", "LLM Interaction", "Generative AI Fundamentals"],
   },
   {
-    emoji: "🚀",
-    title: "Full-Stack AI Products",
-    text: "Ship end-to-end applications that merge real-time streaming AI, vector search, and responsive user interfaces"
+    title: "Front-End Software Engineering",
+    issuer: "Skyscanner on Forage",
+    date: "May 2026",
+    type: "Job Simulation",
+    skills: ["React.js", "Component Architecture", "Web Applications", "Testing"],
   },
   {
-    emoji: "🐍",
-    title: "Django & Python Scale",
-    text: "Scale robust backend architectures using Django, asynchronous workers, and relational database systems"
+    title: "Networking Basics",
+    issuer: "Cisco Networking Academy",
+    date: "May 2026",
+    type: "Course Certificate",
+    skills: ["Network Protocols", "IP Addressing", "Subnetting", "Network Architecture"],
   },
-  {
-    emoji: "🏢",
-    title: "High-Impact Roles",
-    text: "Secure an AI Automation Engineer or Full-Stack AI Engineer role at a forward-thinking, product-driven company"
-  },
-  {
-    emoji: "🤝",
-    title: "Open Source AI & Community",
-    text: "Contribute to and release open-source developer tools, AI automation templates, and reusable software"
-  },
-  {
-    emoji: "🧠",
-    title: "Systems & ML Engineering",
-    text: "Deepen mastery in distributed systems, prompt engineering architectures, and scalable inference"
-  }
 ];

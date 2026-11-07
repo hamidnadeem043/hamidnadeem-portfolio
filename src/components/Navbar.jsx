@@ -1,28 +1,29 @@
 import React, { useState, useEffect } from 'react';
-import { Mail, Menu, X, ArrowUpRight } from 'lucide-react';
+import { Menu, X, Download, Github, Linkedin, Mail } from 'lucide-react';
 import { personalData } from '../data/portfolioData';
 
 const navItems = [
+  { label: 'Home', href: '#hero' },
   { label: 'About', href: '#about' },
-  { label: 'Experience', href: '#experience' },
   { label: 'Skills', href: '#skills' },
+  { label: 'Experience', href: '#experience' },
   { label: 'Projects', href: '#projects' },
-  { label: 'GitHub', href: '#github' },
-  { label: 'Certs', href: '#certifications' },
+  { label: 'Learning Journey', href: '#learning' },
+  { label: 'Certifications', href: '#certifications' },
   { label: 'Contact', href: '#contact' },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('');
+  const [activeSection, setActiveSection] = useState('hero');
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
+      setScrolled(window.scrollY > 30);
 
       const sections = navItems.map((item) => item.href.substring(1));
-      const scrollPosition = window.scrollY + 200;
+      const scrollPosition = window.scrollY + 180;
 
       for (let i = sections.length - 1; i >= 0; i--) {
         const el = document.getElementById(sections[i]);
@@ -41,100 +42,158 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'py-3.5 px-6 md:px-14 bg-[#06080F]/90 backdrop-blur-xl border-b border-[#6C63FF]/15 shadow-lg shadow-black/20'
-          : 'py-5 px-6 md:px-14 bg-[#06080F]/60 backdrop-blur-md border-b border-transparent'
+          ? 'py-3 px-5 md:px-10 bg-[#0d1117]/90 backdrop-blur-md border-b border-[#30363d] shadow-sm'
+          : 'py-4 px-5 md:px-10 bg-[#0d1117]/60 backdrop-blur-sm border-b border-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo with Profile Photo */}
         <a
-          href="#"
-          className="flex items-center gap-2.5 group"
-          title={`${personalData.name} - Portfolio`}
+          href="#hero"
+          className="flex items-center gap-3 group"
+          title={`${personalData.name} — Portfolio`}
         >
-          <div className="relative w-8 h-8 rounded-full p-[1.5px] bg-gradient-to-tr from-[#6C63FF] via-[#00D9FF] to-[#10B981] shadow-[0_0_12px_rgba(108,99,255,0.4)]">
+          <div className="relative w-8 h-8 rounded-full overflow-hidden border border-[#30363d] group-hover:border-[#58a6ff] transition-colors shrink-0">
             <img
               src={personalData.photo}
               alt={personalData.name}
-              className="w-full h-full object-cover rounded-full bg-[#0C0F1A]"
+              className="w-full h-full object-cover bg-[#161b22]"
               onError={(e) => {
                 e.currentTarget.src = personalData.fallbackPhoto;
               }}
             />
-            <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-emerald-400 rounded-full border border-[#06080F]" />
           </div>
-          <span className="font-heading font-bold text-xl tracking-tight gradient-text-primary group-hover:opacity-90 transition-opacity">
-            {personalData.initials}
-          </span>
+          <div className="flex flex-col">
+            <span className="font-heading font-semibold text-base text-[#f0f6fc] group-hover:text-[#58a6ff] transition-colors">
+              {personalData.name}
+            </span>
+            <span className="text-[11px] text-[#8b949e] font-light hidden sm:block">
+              Software Developer
+            </span>
+          </div>
         </a>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-7">
-          <ul className="flex items-center gap-6 list-none">
+        <nav className="hidden xl:flex items-center gap-1">
+          {navItems.map((item) => {
+            const sectionId = item.href.substring(1);
+            const isActive = activeSection === sectionId;
+            return (
+              <a
+                key={item.label}
+                href={item.href}
+                className={`text-xs font-medium px-3 py-1.5 rounded-md transition-colors ${
+                  isActive
+                    ? 'text-[#58a6ff] bg-[#58a6ff]/10 font-semibold'
+                    : 'text-[#8b949e] hover:text-[#f0f6fc] hover:bg-[#21262d]/50'
+                }`}
+              >
+                {item.label}
+              </a>
+            );
+          })}
+        </nav>
+
+        {/* Header Right Action & Socials */}
+        <div className="hidden sm:flex items-center gap-3">
+          <a
+            href={personalData.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-2 rounded-md text-[#8b949e] hover:text-[#f0f6fc] hover:bg-[#21262d] transition-colors"
+            title="GitHub Profile"
+            aria-label="GitHub"
+          >
+            <Github className="w-4 h-4" />
+          </a>
+          <a
+            href={personalData.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-2 rounded-md text-[#8b949e] hover:text-[#58a6ff] hover:bg-[#21262d] transition-colors"
+            title="LinkedIn Profile"
+            aria-label="LinkedIn"
+          >
+            <Linkedin className="w-4 h-4" />
+          </a>
+          <a
+            href={personalData.resumePrimary}
+            download="Hamid_Nadeem_Resume.pdf"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium text-[#f0f6fc] bg-[#21262d] border border-[#30363d] hover:bg-[#30363d] hover:border-[#58a6ff]/50 transition-all"
+          >
+            <Download className="w-3.5 h-3.5 text-[#58a6ff]" />
+            <span>Resume</span>
+          </a>
+        </div>
+
+        {/* Mobile Hamburger Toggle */}
+        <button
+          onClick={() => setMobileOpen(!mobileOpen)}
+          className="xl:hidden p-2 rounded-md text-[#8b949e] hover:text-[#f0f6fc] hover:bg-[#21262d] transition-colors"
+          aria-label="Toggle navigation menu"
+        >
+          {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+        </button>
+      </div>
+
+      {/* Mobile Menu Dropdown */}
+      {mobileOpen && (
+        <div className="xl:hidden mt-3 pt-3 border-t border-[#30363d] bg-[#161b22] rounded-xl p-4 shadow-xl border">
+          <nav className="flex flex-col space-y-1">
             {navItems.map((item) => {
               const sectionId = item.href.substring(1);
               const isActive = activeSection === sectionId;
               return (
-                <li key={item.label}>
-                  <a
-                    href={item.href}
-                    className={`text-xs uppercase tracking-widest font-semibold transition-all relative py-1 hover:text-white ${
-                      isActive ? 'text-[#00D9FF]' : 'text-slate-400'
-                    }`}
-                  >
-                    {item.label}
-                    {isActive && (
-                      <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#6C63FF] to-[#00D9FF] rounded-full" />
-                    )}
-                  </a>
-                </li>
+                <a
+                  key={item.label}
+                  href={item.href}
+                  onClick={() => setMobileOpen(false)}
+                  className={`text-sm px-3 py-2 rounded-md transition-colors ${
+                    isActive
+                      ? 'text-[#58a6ff] bg-[#58a6ff]/10 font-medium'
+                      : 'text-[#8b949e] hover:text-[#f0f6fc] hover:bg-[#21262d]'
+                  }`}
+                >
+                  {item.label}
+                </a>
               );
             })}
-          </ul>
-
-          {/* Hire Me Button */}
-          <a
-            href={`mailto:${personalData.email}`}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider text-[#8B83FF] bg-[#6C63FF]/10 border border-[#6C63FF]/40 hover:bg-[#6C63FF]/20 hover:text-white hover:border-[#6C63FF] transition-all hover:-translate-y-0.5 hover:shadow-[0_4px_20px_rgba(108,99,255,0.25)]"
-          >
-            <Mail className="w-3.5 h-3.5" />
-            <span>Hire Me</span>
-          </a>
-        </nav>
-
-        {/* Mobile Hamburger Button */}
-        <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="lg:hidden p-2 text-slate-300 hover:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6C63FF]"
-          aria-label="Toggle navigation menu"
-        >
-          {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
-      </div>
-
-      {/* Mobile Drawer Menu */}
-      {mobileOpen && (
-        <div className="lg:hidden fixed top-[60px] right-0 bottom-0 w-72 bg-[#0C0F1A]/95 backdrop-blur-2xl border-l border-[#6C63FF]/20 p-6 flex flex-col justify-between z-50 animate-in slide-in-from-right duration-300">
-          <div className="flex flex-col gap-5 mt-4">
-            {navItems.map((item) => (
+          </nav>
+          <div className="pt-3 mt-3 border-t border-[#30363d] flex items-center justify-between">
+            <div className="flex items-center gap-2">
               <a
-                key={item.label}
-                href={item.href}
-                onClick={() => setMobileOpen(false)}
-                className="text-sm font-semibold uppercase tracking-widest text-slate-300 hover:text-[#00D9FF] py-2 border-b border-white/5 transition-colors"
+                href={personalData.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-md text-[#8b949e] hover:text-[#f0f6fc]"
+                aria-label="GitHub"
               >
-                {item.label}
+                <Github className="w-4 h-4" />
               </a>
-            ))}
-          </div>
-
-          <div className="pt-6 border-t border-white/10 flex flex-col gap-3">
+              <a
+                href={personalData.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-md text-[#8b949e] hover:text-[#58a6ff]"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-4 h-4" />
+              </a>
+              <a
+                href={`mailto:${personalData.email}`}
+                className="p-2 rounded-md text-[#8b949e] hover:text-[#38bdf8]"
+                aria-label="Email"
+              >
+                <Mail className="w-4 h-4" />
+              </a>
+            </div>
             <a
-              href={`mailto:${personalData.email}`}
-              className="w-full flex items-center justify-center gap-2 py-3 rounded-lg text-xs font-semibold uppercase tracking-wider text-white bg-gradient-to-r from-[#6C63FF] to-[#00D9FF] shadow-lg shadow-[#6C63FF]/25"
+              href={personalData.resumePrimary}
+              download="Hamid_Nadeem_Resume.pdf"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium text-[#f0f6fc] bg-[#238636] hover:bg-[#2ea043] transition-colors"
             >
-              <Mail className="w-4 h-4" />
-              <span>Get in Touch</span>
+              <Download className="w-3.5 h-3.5" />
+              <span>Resume</span>
             </a>
           </div>
         </div>

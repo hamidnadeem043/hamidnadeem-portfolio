@@ -1,193 +1,146 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Search, Sparkles, Code2 } from 'lucide-react';
-import { skillsCategories, matrix, matrixProjects, matrixNote } from '../data/portfolioData';
+import { motion } from 'framer-motion';
+import { Code2, Server, Database, Bot, Zap, Wrench, CheckCircle2, Clock, Compass } from 'lucide-react';
+import { skillsCategories } from '../data/portfolioData';
+
+const categoryIcons = {
+  'Frontend Development': <Code2 className="w-5 h-5 text-[#58a6ff]" />,
+  'Backend Development': <Server className="w-5 h-5 text-[#38bdf8]" />,
+  'Databases': <Database className="w-5 h-5 text-[#bc8cff]" />,
+  'AI & Machine Learning': <Bot className="w-5 h-5 text-[#58a6ff]" />,
+  'Automation & Emerging Tech': <Zap className="w-5 h-5 text-[#e3b341]" />,
+  'Development Tools': <Wrench className="w-5 h-5 text-[#3fb950]" />,
+};
+
+function LevelBadge({ level }) {
+  if (level === 'Practical Experience') {
+    return (
+      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-medium bg-[#238636]/15 text-[#3fb950] border border-[#238636]/30">
+        <CheckCircle2 className="w-3 h-3" />
+        <span>Practical</span>
+      </span>
+    );
+  }
+  if (level === 'Currently Learning') {
+    return (
+      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-medium bg-[#58a6ff]/15 text-[#58a6ff] border border-[#58a6ff]/30">
+        <Clock className="w-3 h-3" />
+        <span>Learning</span>
+      </span>
+    );
+  }
+  return (
+    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-medium bg-[#8b949e]/15 text-[#8b949e] border border-[#8b949e]/30">
+      <Compass className="w-3 h-3" />
+      <span>Exploring</span>
+    </span>
+  );
+}
 
 export default function Skills() {
-  const [activeTab, setActiveTab] = useState('All');
-  const [searchQuery, setSearchQuery] = useState('');
+  const [activeCategory, setActiveCategory] = useState('All');
 
   const categories = ['All', ...skillsCategories.map((c) => c.category)];
 
-  const filteredCategories = skillsCategories
-    .map((cat) => {
-      if (activeTab !== 'All' && cat.category !== activeTab) return null;
-
-      const matchingItems = cat.items.filter((item) =>
-        item.name.toLowerCase().includes(searchQuery.toLowerCase())
-      );
-
-      if (matchingItems.length === 0) return null;
-
-      return {
-        ...cat,
-        items: matchingItems
-      };
-    })
-    .filter(Boolean);
+  const displayedCategories =
+    activeCategory === 'All'
+      ? skillsCategories
+      : skillsCategories.filter((c) => c.category === activeCategory);
 
   return (
-    <section id="skills" className="py-24 px-6 md:px-14 relative">
+    <section id="skills" className="py-20 px-5 md:px-10 relative bg-[#0d1117]">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-12 space-y-3">
-          <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#00D9FF]">
-            <span className="w-6 h-[2px] bg-gradient-to-r from-[#6C63FF] to-[#00D9FF] rounded-full" />
-            <span>Tech Stack</span>
-            <span className="w-6 h-[2px] bg-gradient-to-r from-[#00D9FF] to-[#6C63FF] rounded-full" />
+        <div className="mb-12 space-y-2">
+          <div className="inline-flex items-center gap-2 text-xs font-mono font-medium text-[#58a6ff]">
+            <span>02.</span>
+            <span className="uppercase tracking-wider">Technical Skills</span>
+            <span className="w-12 h-px bg-[#30363d]" />
           </div>
-          <h2 className="font-heading font-bold text-3xl sm:text-4xl text-white tracking-tight">
-            Skills & Technologies
+          <h2 className="font-heading font-bold text-3xl sm:text-4xl text-[#f0f6fc] tracking-tight">
+            Categorized Technical Stack & Experience Levels
           </h2>
+          <p className="text-sm text-[#8b949e] max-w-2xl font-light">
+            Clear distinction between technologies with hands-on project experience, active learning areas, and technical exploration. No arbitrary percentage bars.
+          </p>
         </div>
 
-        {/* Filter & Search Bar */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-12">
-          {/* Category Tabs */}
-          <div className="flex flex-wrap justify-center gap-2">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveTab(cat)}
-                className={`px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider transition-all duration-300 ${
-                  activeTab === cat
-                    ? 'bg-gradient-to-r from-[#6C63FF] to-[#00D9FF] text-white shadow-lg shadow-[#6C63FF]/25 scale-105'
-                    : 'bg-[#121628]/60 text-slate-400 border border-[#6C63FF]/15 hover:text-white hover:border-[#6C63FF]/40'
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
+        {/* Category Tabs */}
+        <div className="flex flex-wrap items-center gap-2 mb-10 pb-4 border-b border-[#30363d]">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`px-3.5 py-1.5 rounded-md text-xs font-medium transition-all ${
+                activeCategory === cat
+                  ? 'bg-[#58a6ff] text-[#0d1117] font-semibold shadow-sm'
+                  : 'bg-[#161b22] text-[#8b949e] border border-[#30363d] hover:text-[#f0f6fc] hover:border-[#58a6ff]/40'
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
 
-          {/* Search Input */}
-          <div className="relative w-full md:w-64">
-            <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
-            <input
-              type="text"
-              placeholder="Search skill..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-[#121628]/80 border border-[#6C63FF]/20 rounded-xl pl-10 pr-4 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-[#00D9FF] transition-colors"
-            />
+        {/* Legend */}
+        <div className="flex flex-wrap items-center gap-4 mb-8 text-xs text-[#8b949e]">
+          <span className="font-mono text-[11px] uppercase text-[#c9d1d9]">Proficiency Legend:</span>
+          <div className="flex items-center gap-1.5">
+            <span className="w-2 h-2 rounded-full bg-[#3fb950]" />
+            <span>Practical Experience (Shipped in projects/internships)</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <span className="w-2 h-2 rounded-full bg-[#58a6ff]" />
+            <span>Currently Learning (Active daily technical focus)</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <span className="w-2 h-2 rounded-full bg-[#8b949e]" />
+            <span>Exploring (Concepts & emerging experiments)</span>
           </div>
         </div>
 
-        {/* Categories Grid */}
-        <div className="space-y-10">
-          <AnimatePresence mode="wait">
-            {filteredCategories.map((catGroup) => (
-              <motion.div
-                key={catGroup.category}
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -15 }}
-                transition={{ duration: 0.4 }}
-                className="space-y-4"
-              >
-                <div className="flex items-center gap-3">
-                  <h3 className="font-heading text-xs uppercase tracking-widest font-semibold text-slate-400">
-                    {catGroup.category}
-                  </h3>
-                  <div className="flex-1 h-px bg-gradient-to-r from-[#6C63FF]/30 to-transparent" />
+        {/* Skills Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {displayedCategories.map((group, idx) => (
+            <motion.div
+              key={group.category}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.4, delay: idx * 0.08 }}
+              className="p-5 rounded-xl bg-[#161b22] border border-[#30363d] flex flex-col justify-between hover:border-[#58a6ff]/40 transition-colors"
+            >
+              <div>
+                <div className="flex items-center justify-between pb-3 mb-4 border-b border-[#30363d]">
+                  <div className="flex items-center gap-2.5">
+                    {categoryIcons[group.category] || <Code2 className="w-5 h-5 text-[#58a6ff]" />}
+                    <h3 className="font-heading font-semibold text-sm text-[#f0f6fc]">
+                      {group.category}
+                    </h3>
+                  </div>
+                  <span className="text-[10px] font-mono text-[#8b949e]">
+                    {group.items.length} skills
+                  </span>
                 </div>
 
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
-                  {catGroup.items.map((skill) => (
+                <div className="space-y-2.5">
+                  {group.items.map((skill) => (
                     <div
                       key={skill.name}
-                      className="group p-3.5 rounded-xl bg-[#121628]/60 border border-[#6C63FF]/15 backdrop-blur-md flex items-center gap-3 hover:border-[#6C63FF]/50 hover:bg-[#6C63FF]/10 hover:-translate-y-1 hover:shadow-[0_6px_20px_rgba(108,99,255,0.2)] transition-all duration-300"
+                      className="p-2.5 rounded-lg bg-[#0d1117] border border-[#30363d]/60 flex items-center justify-between gap-3 text-xs"
                     >
-                      <span className="text-xl group-hover:scale-110 transition-transform duration-300">
-                        {skill.icon}
-                      </span>
-                      <div className="min-w-0">
-                        <div className="text-xs font-semibold text-slate-200 truncate group-hover:text-white">
-                          {skill.name}
-                        </div>
-                        <div className="text-[10px] text-slate-400 group-hover:text-[#00D9FF] transition-colors">
-                          {skill.level}
-                        </div>
-                      </div>
+                      <span className="font-medium text-[#c9d1d9]">{skill.name}</span>
+                      <LevelBadge level={skill.level} />
                     </div>
                   ))}
                 </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
+              </div>
 
-          {filteredCategories.length === 0 && (
-            <div className="text-center py-12 text-slate-400 text-sm">
-              No skills match your search query "{searchQuery}".
-            </div>
-          )}
-        </div>
-
-        {/* Project-Skill Usage Matrix */}
-        <div className="mt-16 pt-12 border-t border-[#6C63FF]/20">
-          <div className="mb-6 space-y-2">
-            <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#00D9FF]">
-              <Code2 className="w-4 h-4" />
-              <span>Project-Skill Matrix</span>
-            </div>
-            <h3 className="font-heading font-semibold text-xl text-white">
-              What I have used, and where
-            </h3>
-            <p className="text-xs text-slate-400 font-light max-w-xl">
-              Each glowing marker indicates real, production usage in a shipped project.
-            </p>
-          </div>
-
-          <div className="overflow-x-auto rounded-2xl border border-[#6C63FF]/15 bg-[#121628]/60 backdrop-blur-xl">
-            <table className="w-full min-w-[580px] border-collapse text-left">
-              <thead>
-                <tr className="border-b border-[#6C63FF]/20">
-                  <th scope="col" className="p-3.5 pl-6 text-xs font-semibold text-slate-300 uppercase tracking-wider">
-                    Skill / Technology
-                  </th>
-                  {matrixProjects.map((p) => (
-                    <th
-                      key={p.id}
-                      scope="col"
-                      className="p-3.5 text-center text-xs font-semibold text-[#8B83FF] uppercase tracking-wider"
-                    >
-                      {p.short}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {matrix.map((m) => (
-                  <tr
-                    key={m.skill}
-                    className="border-b border-white/5 hover:bg-[#6C63FF]/10 transition-colors"
-                  >
-                    <td className="p-3 pl-6 text-xs font-medium text-slate-200">
-                      {m.skill}
-                    </td>
-                    {matrixProjects.map((p) => {
-                      const used = m.used.includes(p.id);
-                      return (
-                        <td key={p.id} className="p-3 text-center">
-                          {used ? (
-                            <span
-                              className="inline-block w-2.5 h-2.5 rounded-full bg-[#00D9FF] shadow-[0_0_8px_#00D9FF]"
-                              title={`Used in ${p.short}`}
-                            />
-                          ) : (
-                            <span className="inline-block w-1 h-1 rounded-full bg-slate-700" />
-                          )}
-                        </td>
-                      );
-                    })}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="mt-3 text-[11px] text-slate-500 italic">
-            *{matrixNote}
-          </p>
+              <div className="pt-4 mt-4 border-t border-[#30363d]/50 text-[11px] font-mono text-[#8b949e]">
+                Stage: <span className="text-[#c9d1d9]">{group.levelNote}</span>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
