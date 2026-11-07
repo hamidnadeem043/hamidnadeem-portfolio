@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Code2, Server, Database, Bot, Zap, Wrench, CheckCircle2, Clock, Compass } from 'lucide-react';
+import { Code2, Server, Database, Bot, Zap, Wrench, CheckCircle2, Clock, Compass, Sparkles } from 'lucide-react';
 import { skillsCategories } from '../data/portfolioData';
 
 const categoryIcons = {
@@ -8,7 +8,7 @@ const categoryIcons = {
   'Backend Development': <Server className="w-5 h-5 text-[#38bdf8]" />,
   'Databases': <Database className="w-5 h-5 text-[#bc8cff]" />,
   'AI & Machine Learning': <Bot className="w-5 h-5 text-[#58a6ff]" />,
-  'Automation & Emerging Tech': <Zap className="w-5 h-5 text-[#e3b341]" />,
+  'Automation & Emerging Tech': <Zap className="w-5 h-5 text-[#38bdf8]" />,
   'Development Tools': <Wrench className="w-5 h-5 text-[#3fb950]" />,
 };
 
@@ -26,6 +26,14 @@ function LevelBadge({ level }) {
       <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-medium bg-[#58a6ff]/15 text-[#58a6ff] border border-[#58a6ff]/30">
         <Clock className="w-3 h-3" />
         <span>Learning</span>
+      </span>
+    );
+  }
+  if (level === 'Emerging Specialization') {
+    return (
+      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-medium bg-[#38bdf8]/15 text-[#38bdf8] border border-[#38bdf8]/30">
+        <Sparkles className="w-3 h-3 text-[#38bdf8]" />
+        <span>Specialization</span>
       </span>
     );
   }
@@ -92,6 +100,10 @@ export default function Skills() {
           <div className="flex items-center gap-1.5">
             <span className="w-2 h-2 rounded-full bg-[#58a6ff]" />
             <span>Currently Learning (Active daily technical focus)</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <span className="w-2 h-2 rounded-full bg-[#38bdf8]" />
+            <span>Emerging Specialization (Career focus)</span>
           </div>
           <div className="flex items-center gap-1.5">
             <span className="w-2 h-2 rounded-full bg-[#8b949e]" />

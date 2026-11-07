@@ -11,8 +11,10 @@ const pathIcons = {
 
 const badgeStyles = {
   'Current Core Focus': 'bg-[#58a6ff]/15 text-[#58a6ff] border-[#58a6ff]/30',
+  'Current Learning Focus': 'bg-[#58a6ff]/15 text-[#58a6ff] border-[#58a6ff]/30',
   'Learning & Exploration': 'bg-[#38bdf8]/15 text-[#38bdf8] border-[#38bdf8]/30',
-  'Emerging Direction': 'bg-[#e3b341]/15 text-[#e3b341] border-[#e3b341]/30',
+  'Emerging Specialization': 'bg-[#38bdf8]/15 text-[#38bdf8] border-[#38bdf8]/30 font-medium',
+  'Emerging Direction': 'bg-[#38bdf8]/15 text-[#38bdf8] border-[#38bdf8]/30',
 };
 
 export default function Learning() {
